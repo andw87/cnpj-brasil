@@ -1,0 +1,49 @@
+# cnpj-brasil: measured comparison of free CNPJ lookup APIs (Brazil company registry)
+
+> Which free API to use for a CNPJ lookup (consulta CNPJ, API de CNPJ gratuita)? Seven free Brazilian CNPJ APIs (BrasilAPI, Minha Receita, ReceitaWS, CNPJá Open, CNPJ.ws public API, OpenCNPJ.org, OpenCNPJ.com/Kitana), all serving Receita Federal registry data, were measured with the same CNPJs on 2026-11-16/17 UTC: coverage, field completeness, validity, cross-API agreement, freshness (newest companies), alphanumeric CNPJ support, rate limits and latency. Exploratory study: one collection night, one client, small samples (300 CNPJs for quality, 196 for rate limits, 346 lookups for freshness). Suggestion, not certification; free tiers change without notice. Documentation in Portuguese (README.md, docs/pt-BR/) and English (README.en.md, docs/).
+
+Key facts (measured unless stated; every number is in results/summary.json):
+- Freshness is bounded by the monthly Receita Federal open-data release, extracted on the 2nd Saturday of each month and published 1–3 days later. No free API returned a company opened after the latest extraction (2026-11-14, published 2026-11-16).
+- Minha Receita (https://minhareceita.org/{cnpj}): newest data of the seven (companies opened up to 2026-11-14 present on 2026-11-16); no key; 0% HTTP 429 at up to 6,310 requests/min; open source (https://codeberg.org/cuducos/minha-receita). Caveats:
+  - Its CDN served stale cached 404s for 22 of 297 existing CNPJs (7.4%). Retry a 404 with the punctuated CNPJ (12.345.678%2F0001-95); all were then returned.
+  - Share capital above 16,777,216 is rounded (32-bit float). No e-mail field.
+- BrasilAPI (https://brasilapi.com.br/api/cnpj/v1/{cnpj}) forwards CNPJ lookups to Minha Receita: same data, same stale cached 404s (26 of 297, 8.8%), and HTTP 429 to a second unpaced burst.
+- OpenCNPJ.org (https://api.opencnpj.org/{cnpj}): coverage 99.0% (n = 300); 0% HTTP 429 at up to 5,209 requests/min; commercial use allowed by its FAQ; one monthly release behind (newest company 2026-10-08); answers 404 to an invalid CNPJ (no check-digit validation).
+- CNPJá Open (https://open.cnpja.com/office/{cnpj}): highest relative completeness (99.8%); 5 requests/min per IP with 10.7% HTTP 429 at that pace; HTTP 402 for 13 of 36 companies opened on 2026-11-01..14 on the free tier.
+- OpenCNPJ.com (https://kitana.opencnpj.com/cnpj/{cnpj}): lowest latency (p50 53 ms, p95 94 ms); about two months behind (newest company 2026-09-11); response wrapped in {"success","data"}; no reuse license.
+- ReceitaWS (https://receitaws.com.br/v1/cnpj/{cnpj}): 3 requests/min (2.5 CNPJs/min effective, 16.0% HTTP 429 at that pace); the free tier serves only its own cache ("not in cache"); errors arrive as HTTP 200 with "status": "ERROR"; terms forbid commercial use.
+- CNPJ.ws public API (https://publica.cnpj.ws/cnpj/{cnpj}): 3 requests/min (1.4 CNPJs/min effective); degraded during the test (12.4% of CNPJs ended in HTTP 500/504 or timeout); returns state registrations; terms forbid commercial use.
+- Alphanumeric CNPJ (issued since July 2026): characters map to ASCII code minus 48; the two check digits stay numeric (example 12.ABC.345/01DE-35). All measured APIs except OpenCNPJ.org accept the format and reject a wrong check digit.
+- Suggested pattern: Minha Receita first; on 404 retry the punctuated form; on error fall back to OpenCNPJ.org; for tens of thousands of CNPJs use the monthly open-data files instead of an API.
+
+## Start here
+- [README (Português)](README.md): short answer, results table, limitations, how to reproduce, how to connect
+- [README (English)](README.en.md)
+- [Suggestion by use case](docs/ranking.md): which API for which need, with evidence
+- [Methodology](docs/methodology.md): design, samples, metric definitions, common 25-field schema, threats to validity, corrections
+
+## Per-API pages (same template: endpoint, auth, limits, curl/Python/JS, observed errors, JSON path and fill rate of every field, freshness, issues)
+- [S01 BrasilAPI](docs/sources/S01-brasilapi.md)
+- [S02 Minha Receita](docs/sources/S02-minhareceita.md)
+- [S03 ReceitaWS](docs/sources/S03-receitaws.md)
+- [S04 CNPJá Open](docs/sources/S04-cnpja-open.md)
+- [S05 CNPJ.ws](docs/sources/S05-cnpjws-public.md)
+- [S06 OpenCNPJ.org](docs/sources/S06-opencnpj-org.md)
+- [S07 OpenCNPJ.com](docs/sources/S07-opencnpj-com.md)
+
+## Machine-readable data
+- [results/summary.json](results/summary.json): every published number per API (coverage with 95% CI, per-field fill and agreement, latency percentiles, rate-limit behaviour, freshness per half-month, alphanumeric probe)
+- [catalog/sources.yaml](catalog/sources.yaml): API ids, endpoints, pace used
+- [catalog/field_map.yaml](catalog/field_map.yaml): JSON path of each common field in each API response
+- [catalog/source_profiles.yaml](catalog/source_profiles.yaml): maintainer, data origin, terms, update schedule, with links
+
+## Results
+- [Wave 1, quality](results/wave1/REPORT.md) and [per-field table](results/wave1/DATASHEET.md)
+- [Wave 2, rate limits](results/wave2/REPORT.md)
+- [Freshness and alphanumeric CNPJ](results/freshness/REPORT.md)
+
+## Optional
+- [Connector code](src/cnpjbench/connectors/): Python mapping of each API to the common schema
+- [How to reproduce](docs/reproduce.md)
+- [Similar repositories](docs/similar-repositories.md)
+- [Citation](CITATION.cff)

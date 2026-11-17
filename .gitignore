@@ -1,0 +1,19 @@
+# Private, site-specific material (never versioned)
+local/
+data/
+.env
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+*.egg-info/
+
+# Editors / OS
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store

@@ -1,0 +1,154 @@
+# CNPJ source catalog — single source of truth for source IDs (docs/reproduce.md, adding a source).
+#
+# Rules
+#   * source_id is "S" + two digits, assigned in order of entry, immutable, never reused.
+#   * slug is lower_snake_case; connector module = src/cnpjbench/connectors/<source_id lower>_<slug>.py
+#   * status: active | pending_credentials | planned | rejected
+#   * rate_limit_rpm: requests per minute the benchmark is allowed to send.
+#     rate_limit_basis: documented (provider docs) | observed (response headers) | assumed (no info; polite default 60)
+#   * Probe column: result of scripts/00_smoke_sources.py on 2026-11-16 with public CNPJ 33000167000101.
+
+sources:
+  - source_id: S01
+    slug: brasilapi
+    name: BrasilAPI
+    url_template: "https://brasilapi.com.br/api/cnpj/v1/{cnpj}"
+    access: free_no_key
+    open_source: true
+    upstream: Receita Federal open data (via Minha Receita)
+    rate_limit_rpm: 60
+    rate_limit_basis: assumed
+    status: active
+    probe_2026_11_16: "200 found (00000000000191 -> 404)"
+
+  - source_id: S02
+    slug: minhareceita
+    name: Minha Receita (public instance)
+    url_template: "https://minhareceita.org/{cnpj}"
+    access: free_no_key
+    open_source: true
+    upstream: Receita Federal open data
+    rate_limit_rpm: 60
+    rate_limit_basis: assumed
+    status: active
+    probe_2026_11_16: "200 found (00000000000191 -> 404)"
+
+  - source_id: S03
+    slug: receitaws
+    name: ReceitaWS (free tier)
+    url_template: "https://receitaws.com.br/v1/cnpj/{cnpj}"
+    access: free_no_key
+    open_source: false
+    upstream: Receita Federal
+    rate_limit_rpm: 3
+    rate_limit_basis: observed
+    status: active
+    probe_2026_11_16: "200 found; X-RateLimit-Limit: 3"
+
+  - source_id: S04
+    slug: cnpja_open
+    name: CNPJa Open
+    url_template: "https://open.cnpja.com/office/{cnpj}"
+    access: free_no_key
+    open_source: false
+    upstream: Receita Federal + Simples Nacional
+    rate_limit_rpm: 5
+    rate_limit_basis: documented
+    status: active
+    probe_2026_11_16: "200 found"
+
+  - source_id: S05
+    slug: cnpjws_public
+    name: CNPJ.ws Public API
+    url_template: "https://publica.cnpj.ws/cnpj/{cnpj}"
+    access: free_no_key
+    open_source: false
+    upstream: Receita Federal + SINTEGRA
+    rate_limit_rpm: 3
+    rate_limit_basis: observed
+    status: active
+    probe_2026_11_16: "200 found; x-ratelimit-limit: 3"
+
+  - source_id: S06
+    slug: opencnpj_org
+    name: OpenCNPJ (opencnpj.org)
+    url_template: "https://api.opencnpj.org/{cnpj}"
+    access: free_no_key
+    open_source: true
+    upstream: Receita Federal open data
+    rate_limit_rpm: 300
+    rate_limit_basis: documented
+    status: active
+    probe_2026_11_16: "200 found"
+
+  - source_id: S07
+    slug: opencnpj_com
+    name: OpenCNPJ (opencnpj.com, Kitana API)
+    url_template: "https://kitana.opencnpj.com/cnpj/{cnpj}"
+    access: free_no_key
+    open_source: false
+    upstream: Receita Federal open data
+    rate_limit_rpm: 120
+    rate_limit_basis: observed
+    status: active
+    probe_2026_11_16: "200 found; X-Ratelimit-Limit: 300"
+
+  - source_id: S08
+    slug: minhareceita_selfhosted
+    name: Minha Receita (self-hosted, Docker)
+    url_template: "http://127.0.0.1:8000/{cnpj}"
+    access: self_hosted
+    open_source: true
+    upstream: Receita Federal open data (monthly dump)
+    rate_limit_rpm: 6000
+    rate_limit_basis: assumed
+    status: planned
+    probe_2026_11_16: "not deployed"
+
+  - source_id: S09
+    slug: rfb_open_data
+    name: Receita Federal CNPJ open data (bulk files)
+    url_template: null
+    access: bulk_download
+    open_source: true
+    upstream: Receita Federal (authoritative)
+    rate_limit_rpm: null
+    rate_limit_basis: null
+    status: planned
+    probe_2026_11_16: "not loaded; candidate reference for ground truth"
+
+  - source_id: S10
+    slug: invertexto
+    name: Invertexto API (free token)
+    url_template: "https://api.invertexto.com/v1/cnpj/{cnpj}?token={token}"
+    access: free_with_key
+    open_source: false
+    upstream: Receita Federal
+    rate_limit_rpm: 60
+    rate_limit_basis: assumed
+    status: pending_credentials
+    probe_2026_11_16: "401 Unauthenticated (token required)"
+
+  - source_id: S11
+    slug: casadosdados
+    name: Casa dos Dados API
+    url_template: "https://api.casadosdados.com.br/v4/cnpj/{cnpj}"
+    access: paid_key
+    open_source: false
+    upstream: Receita Federal
+    rate_limit_rpm: null
+    rate_limit_basis: null
+    status: rejected
+    probe_2026_11_16: "401 (paid key required)"
+
+  - source_id: S12
+    slug: serpro_consulta_cnpj
+    name: SERPRO Consulta CNPJ
+    url_template: null
+    access: paid_key
+    open_source: false
+    upstream: Receita Federal (official)
+    rate_limit_rpm: null
+    rate_limit_basis: null
+    status: rejected
+    probe_2026_11_16: "not probed (paid contract)"

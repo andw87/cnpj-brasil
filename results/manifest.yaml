@@ -1,0 +1,24 @@
+# Result sets published in results/ and the samples/labels behind each one.
+# Read by scripts/90_build_summary.py; every number in results/summary.json is traceable to these runs.
+
+wave1:
+  question: RQ1–RQ5 — coverage, completeness, validity, agreement, throughput at catalog limits
+  sample: SMP-20261116-n1100-r20261116
+  labels: [w1a, w1b]
+
+wave2:
+  question: rate-limit (HTTP 429) behaviour under 1x/2x/4x pace and unpaced bursts
+  sample: SMP-20261117-n196-r20261116-w2
+  ramp_labels: [w2a-x1, w2a-x2, w2a-x4]
+  burst_labels: [w2b-r1, w2b-r2]
+
+freshness:
+  question: RQ6–RQ7 — newest companies each source knows; alphanumeric CNPJ support
+  samples:
+    - SMP-20261117-n220-r20261116-frontier
+    - SMP-20261117-n60-r20261116-frontier2
+    - SMP-20261117-n66-r20261116-frontierlite
+  labels: [fr]
+  alnum_sample: SMP-20261117-n12-r20261116-alnum
+  age_sample: SMP-20261116-n1100-r20261116
+  age_labels: [w1a, w1b]

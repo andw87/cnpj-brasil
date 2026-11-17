@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="320" viewBox="0 0 1280 320" role="img" aria-labelledby="t d">
+  <title id="t">Which free CNPJ API should I use?</title>
+  <desc id="d">A suggestion based on measurements of 7 free Brazilian CNPJ lookup APIs, taken on 16 and 17 November 2026.</desc>
+  <rect width="1280" height="320" fill="#13293d"/>
+  <rect x="0" y="0" width="12" height="320" fill="#3fa796"/>
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', sans-serif">
+    <text x="80" y="138" font-size="56" font-weight="700" fill="#ffffff">Which free CNPJ API should I use?</text>
+    <text x="80" y="200" font-size="30" fill="#d6e4f0">A suggestion based on measurements of 7 Brazilian CNPJ lookup APIs.</text>
+    <text x="80" y="262" font-size="22" fill="#9fb8cc">Measured on 2026-11-16/17 · method, code and numbers open to check and repeat</text>
+  </g>
+  <g fill="none" stroke="#3fa796" stroke-width="4" opacity="0.9">
+    <rect x="1112" y="96" width="100" height="128" rx="8"/>
+  </g>
+  <g fill="#3fa796">
+    <rect x="1128" y="118" width="68" height="10" rx="3"/>
+    <rect x="1128" y="142" width="50" height="10" rx="3" opacity="0.75"/>
+    <rect x="1128" y="166" width="60" height="10" rx="3" opacity="0.75"/>
+    <rect x="1128" y="190" width="40" height="10" rx="3" opacity="0.75"/>
+  </g>
+</svg>

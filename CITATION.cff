@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "Se usar estes resultados, cite este repositório. If you use these results, please cite this repository."
+type: software
+title: "cnpj-brasil: comparação medida de APIs gratuitas de consulta CNPJ (Measured comparison of free Brazilian CNPJ lookup APIs)"
+abstract: >-
+  Exploratory measurement of seven free Brazilian CNPJ lookup APIs (BrasilAPI, Minha Receita,
+  ReceitaWS, CNPJá Open, CNPJ.ws, OpenCNPJ.org and OpenCNPJ.com) with the same CNPJs on
+  2026-11-16/17 UTC: coverage, field completeness, validity, cross-API agreement, freshness,
+  alphanumeric CNPJ support, rate limits and latency. Includes the collection code, the aggregated
+  results and a suggestion by use case.
+authors:
+  - alias: andw87
+version: "1.0.0"
+date-released: "2026-11-17"
+license: MIT
+repository-code: "https://github.com/andw87/cnpj-brasil"
+url: "https://github.com/andw87/cnpj-brasil"
+keywords:
+  - cnpj
+  - consulta cnpj
+  - api cnpj
+  - receita federal
+  - dados abertos
+  - open data
+  - brasilapi
+  - minha receita
+  - benchmark
+  - data quality

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="320" viewBox="0 0 1280 320" role="img" aria-labelledby="t d">
+  <title id="t">Qual API de CNPJ gratuita usar?</title>
+  <desc id="d">Sugestão baseada em medições de 7 APIs gratuitas de consulta CNPJ, feitas em 16 e 17 de novembro de 2026.</desc>
+  <rect width="1280" height="320" fill="#13293d"/>
+  <rect x="0" y="0" width="12" height="320" fill="#3fa796"/>
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', sans-serif">
+    <text x="80" y="138" font-size="56" font-weight="700" fill="#ffffff">Qual API de CNPJ gratuita usar?</text>
+    <text x="80" y="200" font-size="30" fill="#d6e4f0">Uma sugestão baseada em medições de 7 APIs de consulta CNPJ.</text>
+    <text x="80" y="262" font-size="22" fill="#9fb8cc">Medido em 16–17/11/2026 · método, código e números abertos para conferir e repetir</text>
+  </g>
+  <g fill="none" stroke="#3fa796" stroke-width="4" opacity="0.9">
+    <rect x="1112" y="96" width="100" height="128" rx="8"/>
+  </g>
+  <g fill="#3fa796">
+    <rect x="1128" y="118" width="68" height="10" rx="3"/>
+    <rect x="1128" y="142" width="50" height="10" rx="3" opacity="0.75"/>
+    <rect x="1128" y="166" width="60" height="10" rx="3" opacity="0.75"/>
+    <rect x="1128" y="190" width="40" height="10" rx="3" opacity="0.75"/>
+  </g>
+</svg>

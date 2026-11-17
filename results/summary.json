@@ -1,0 +1,4055 @@
+{
+ "generated_at": "2026-11-17T03:50:34+00:00",
+ "status": "exploratory benchmark — single collection window, small samples; see docs/methodology.md",
+ "manifest": {
+  "wave1": {
+   "question": "RQ1–RQ5 — coverage, completeness, validity, agreement, throughput at catalog limits",
+   "sample": "SMP-20261116-n1100-r20261116",
+   "labels": [
+    "w1a",
+    "w1b"
+   ]
+  },
+  "wave2": {
+   "question": "rate-limit (HTTP 429) behaviour under 1x/2x/4x pace and unpaced bursts",
+   "sample": "SMP-20261117-n196-r20261116-w2",
+   "ramp_labels": [
+    "w2a-x1",
+    "w2a-x2",
+    "w2a-x4"
+   ],
+   "burst_labels": [
+    "w2b-r1",
+    "w2b-r2"
+   ]
+  },
+  "freshness": {
+   "question": "RQ6–RQ7 — newest companies each source knows; alphanumeric CNPJ support",
+   "samples": [
+    "SMP-20261117-n220-r20261116-frontier",
+    "SMP-20261117-n60-r20261116-frontier2",
+    "SMP-20261117-n66-r20261116-frontierlite"
+   ],
+   "labels": [
+    "fr"
+   ],
+   "alnum_sample": "SMP-20261117-n12-r20261116-alnum",
+   "age_sample": "SMP-20261116-n1100-r20261116",
+   "age_labels": [
+    "w1a",
+    "w1b"
+   ]
+  }
+ },
+ "sources": {
+  "S01": {
+   "wave1": {
+    "runs": [
+     "R20261116T235549-S01-w1a",
+     "R20261117T000550-S01-w1b"
+    ],
+    "cnpjs_closed": 300,
+    "coverage": 0.9033,
+    "coverage_ci95": [
+     0.8646,
+     0.9319
+    ],
+    "outcomes": {
+     "found": 271,
+     "not_found": 29
+    },
+    "error_rate": 0.0,
+    "QI": 0.9347,
+    "completeness_mean": 0.9053,
+    "validity_mean": 0.9971,
+    "agreement_mean": 0.9943,
+    "fields": {
+     "legal_name": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "trade_name": {
+      "fill": 0.6716,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "establishment_type": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "registration_status": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "registration_status_date": {
+      "fill": 0.9889,
+      "relative_completeness": 0.9889,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "opening_date": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "legal_nature_code": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "legal_nature": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "company_size": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "share_capital": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 0.9041
+     },
+     "main_cnae": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "secondary_cnaes": {
+      "fill": 0.7048,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "address_street": {
+      "fill": 0.8598,
+      "relative_completeness": 0.8598,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "address_number": {
+      "fill": 0.8598,
+      "relative_completeness": 0.8598,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "address_complement": {
+      "fill": 0.4428,
+      "relative_completeness": 0.916,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "address_district": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "address_city": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "address_state": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "address_zip": {
+      "fill": 0.9963,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "address_city_ibge": {
+      "fill": 0.9963,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "phones": {
+      "fill": 0.7934,
+      "relative_completeness": 0.8635,
+      "validity": 0.9302,
+      "agreement": 1.0
+     },
+     "email": {
+      "fill": 0.0,
+      "relative_completeness": 0.0,
+      "validity": null,
+      "agreement": null
+     },
+     "partners": {
+      "fill": 0.8007,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 0.9585
+     },
+     "simples_optant": {
+      "fill": 0.572,
+      "relative_completeness": 0.572,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "mei_optant": {
+      "fill": 0.572,
+      "relative_completeness": 0.572,
+      "validity": 1.0,
+      "agreement": 1.0
+     }
+    },
+    "consistency": {
+     "Q2_mojibake_rate": 0.0,
+     "Q3_establishment_consistency": 1.0,
+     "Q4_ibge_state_consistency": 1.0
+    },
+    "reference_agreement": {
+     "legal_name": 0.6827,
+     "address_state": 0.9718,
+     "address_city": 0.9167,
+     "address_zip": 0.6875,
+     "address_city_ibge": 0.9524
+    },
+    "throughput": {
+     "T4_effective_rpm": 60.27,
+     "T5_latency_ms": {
+      "mean": 357.0,
+      "p50": 412.4,
+      "p95": 487.51,
+      "p99": 615.996
+     },
+     "T6_rate_limited_share": 0.0,
+     "T7_retries_per_cnpj": 0.0,
+     "configured_rpm": 60.0
+    }
+   },
+   "wave2": {
+    "steps": {
+     "w2a-x1": {
+      "run_id": "R20261117T030323-S01-w2a-x1",
+      "S1_attempted_rpm": 61.44,
+      "S2_found_rpm": 61.44,
+      "S3_first_429_at_attempt": null,
+      "S4_rate_limited_share": 0.0,
+      "S5_429_with_retry_after": null,
+      "S6_429_header_names": {},
+      "S7_other_errors": {},
+      "S8_latency_p50_found_ms": 274.05,
+      "mode": "ramp",
+      "label": "w2a-x1",
+      "status": "finished",
+      "paced_rpm": 60.0,
+      "concurrency": 1
+     },
+     "w2a-x2": {
+      "run_id": "R20261117T030355-S01-w2a-x2",
+      "S1_attempted_rpm": 114.59,
+      "S2_found_rpm": 114.59,
+      "S3_first_429_at_attempt": null,
+      "S4_rate_limited_share": 0.0,
+      "S5_429_with_retry_after": null,
+      "S6_429_header_names": {},
+      "S7_other_errors": {},
+      "S8_latency_p50_found_ms": 279.8,
+      "mode": "ramp",
+      "label": "w2a-x2",
+      "status": "finished",
+      "paced_rpm": 120.0,
+      "concurrency": 1
+     },
+     "w2a-x4": {
+      "run_id": "R20261117T030413-S01-w2a-x4",
+      "S1_attempted_rpm": 189.21,
+      "S2_found_rpm": 183.3,
+      "S3_first_429_at_attempt": null,
+      "S4_rate_limited_share": 0.0,
+      "S5_429_with_retry_after": null,
+      "S6_429_header_names": {},
+      "S7_other_errors": {},
+      "S8_latency_p50_found_ms": 290.8,
+      "mode": "ramp",
+      "label": "w2a-x4",
+      "status": "finished",
+      "paced_rpm": 240.0,
+      "concurrency": 1
+     },
+     "w2b-r1": {
+      "run_id": "R20261117T030424-S01-w2b-r1",
+      "S1_attempted_rpm": 858.18,
+      "S2_found_rpm": 858.18,
+      "S3_first_429_at_attempt": null,
+      "S4_rate_limited_share": 0.0,
+      "S5_429_with_retry_after": null,
+      "S6_429_header_names": {},
+      "S7_other_errors": {},
+      "S8_latency_p50_found_ms": 252.55,
+      "mode": "burst",
+      "label": "w2b-r1",
+      "status": "finished",
+      "paced_rpm": null,
+      "concurrency": 4
+     },
+     "w2b-r2": {
+      "run_id": "R20261117T030432-S01-w2b-r2",
+      "S1_attempted_rpm": 3366.42,
+      "S2_found_rpm": 0.0,
+      "S3_first_429_at_attempt": 0,
+      "S4_rate_limited_share": 1.0,
+      "S5_429_with_retry_after": 0.0,
+      "S6_429_header_names": {},
+      "S7_other_errors": {},
+      "S8_latency_p50_found_ms": null,
+      "mode": "burst",
+      "label": "w2b-r2",
+      "status": "stopped_breaker",
+      "paced_rpm": null,
+      "concurrency": 4
+     }
+    },
+    "repeat_consistency": {
+     "pair": [
+      "R20261117T030424-S01-w2b-r1",
+      "R20261117T030432-S01-w2b-r2"
+     ],
+     "S9_found_in_both": 0,
+     "S10_identical_record_share": null,
+     "S11_latency_p50_ratio": null
+    }
+   },
+   "freshness": {
+    "newest_opening_date": "2026-11-14",
+    "recall_by_half_month": {
+     "2026-04-a": {
+      "found": 9,
+      "closed": 9,
+      "recall": 1.0,
+      "ci95": [
+       0.7008,
+       1.0
+      ]
+     },
+     "2026-04-b": {
+      "found": 19,
+      "closed": 19,
+      "recall": 1.0,
+      "ci95": [
+       0.8318,
+       1.0
+      ]
+     },
+     "2026-05-a": {
+      "found": 16,
+      "closed": 16,
+      "recall": 1.0,
+      "ci95": [
+       0.8064,
+       1.0
+      ]
+     },
+     "2026-05-b": {
+      "found": 15,
+      "closed": 15,
+      "recall": 1.0,
+      "ci95": [
+       0.7961,
+       1.0
+      ]
+     },
+     "2026-06-a": {
+      "found": 14,
+      "closed": 15,
+      "recall": 0.9333,
+      "ci95": [
+       0.7018,
+       0.9881
+      ]
+     },
+     "2026-06-b": {
+      "found": 13,
+      "closed": 13,
+      "recall": 1.0,
+      "ci95": [
+       0.7719,
+       1.0
+      ]
+     },
+     "2026-07-a": {
+      "found": 17,
+      "closed": 17,
+      "recall": 1.0,
+      "ci95": [
+       0.8157,
+       1.0
+      ]
+     },
+     "2026-07-b": {
+      "found": 16,
+      "closed": 16,
+      "recall": 1.0,
+      "ci95": [
+       0.8064,
+       1.0
+      ]
+     },
+     "2026-08-a": {
+      "found": 21,
+      "closed": 21,
+      "recall": 1.0,
+      "ci95": [
+       0.8454,
+       1.0
+      ]
+     },
+     "2026-08-b": {
+      "found": 17,
+      "closed": 17,
+      "recall": 1.0,
+      "ci95": [
+       0.8157,
+       1.0
+      ]
+     },
+     "2026-09-a": {
+      "found": 16,
+      "closed": 16,
+      "recall": 1.0,
+      "ci95": [
+       0.8064,
+       1.0
+      ]
+     },
+     "2026-09-b": {
+      "found": 16,
+      "closed": 16,
+      "recall": 1.0,
+      "ci95": [
+       0.8064,
+       1.0
+      ]
+     },
+     "2026-10-a": {
+      "found": 12,
+      "closed": 13,
+      "recall": 0.9231,
+      "ci95": [
+       0.6669,
+       0.9863
+      ]
+     },
+     "2026-10-b": {
+      "found": 22,
+      "closed": 22,
+      "recall": 1.0,
+      "ci95": [
+       0.8513,
+       1.0
+      ]
+     },
+     "2026-11-a": {
+      "found": 42,
+      "closed": 45,
+      "recall": 0.9333,
+      "ci95": [
+       0.8214,
+       0.9771
+      ]
+     },
+     "older": {
+      "found": 28,
+      "closed": 28,
+      "recall": 1.0,
+      "ci95": [
+       0.8794,
+       1.0
+      ]
+     }
+    },
+    "declared_record_age_days": null,
+    "alphanumeric_probe": {
+     "33000167000101": {
+      "http_status": 200,
+      "outcome": "found",
+      "message": ""
+     },
+     "33000167000102": {
+      "http_status": 400,
+      "outcome": "invalid_input",
+      "message": "{\"message\":\"CNPJ 33.000.167/0001-02 inválido.\",\"type\":\"bad_request\",\"name\":\"BadRequestError\"}"
+     },
+     "12ABC34501DE35": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": "{\"message\":\"CNPJ 12.ABC.345/01DE-35 não encontrado.\",\"type\":\"not_found\",\"name\":\"NotFoundError\"}"
+     },
+     "DDPLWK0W000199": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": "{\"message\":\"CNPJ DD.PLW.K0W/0001-99 não encontrado.\",\"type\":\"not_found\",\"name\":\"NotFoundError\"}"
+     },
+     "C0XWNWFX000155": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": "{\"message\":\"CNPJ C0.XWN.WFX/0001-55 não encontrado.\",\"type\":\"not_found\",\"name\":\"NotFoundError\"}"
+     },
+     "RZMZG2ER000147": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": "{\"message\":\"CNPJ RZ.MZG.2ER/0001-47 não encontrado.\",\"type\":\"not_found\",\"name\":\"NotFoundError\"}"
+     },
+     "PT7TDBE0000100": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": "{\"message\":\"CNPJ PT.7TD.BE0/0001-00 não encontrado.\",\"type\":\"not_found\",\"name\":\"NotFoundError\"}"
+     },
+     "0DPVAC8F000110": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": "{\"message\":\"CNPJ 0D.PVA.C8F/0001-10 não encontrado.\",\"type\":\"not_found\",\"name\":\"NotFoundError\"}"
+     },
+     "YZFP7A5D000100": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": "{\"message\":\"CNPJ YZ.FP7.A5D/0001-00 não encontrado.\",\"type\":\"not_found\",\"name\":\"NotFoundError\"}"
+     },
+     "SDV0Q7BK000108": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": "{\"message\":\"CNPJ SD.V0Q.7BK/0001-08 não encontrado.\",\"type\":\"not_found\",\"name\":\"NotFoundError\"}"
+     },
+     "IRFOO7TZ000126": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": "{\"message\":\"CNPJ IR.FOO.7TZ/0001-26 não encontrado.\",\"type\":\"not_found\",\"name\":\"NotFoundError\"}"
+     },
+     "7JOPXEVF000186": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": "{\"message\":\"CNPJ 7J.OPX.EVF/0001-86 não encontrado.\",\"type\":\"not_found\",\"name\":\"NotFoundError\"}"
+     }
+    }
+   },
+   "catalog": {
+    "source_id": "S01",
+    "slug": "brasilapi",
+    "name": "BrasilAPI",
+    "url_template": "https://brasilapi.com.br/api/cnpj/v1/{cnpj}",
+    "access": "free_no_key",
+    "open_source": true,
+    "upstream": {
+     "en": "**proxy of Minha Receita (S02)**: the CNPJ route calls `https://minhareceita.org/{cnpj}` with a 5 s timeout ([services/cnpj.js](https://github.com/BrasilAPI/BrasilAPI/blob/main/services/cnpj.js))",
+     "pt": "**proxy da Minha Receita (S02)**: a rota de CNPJ chama `https://minhareceita.org/{cnpj}` com timeout de 5 s ([services/cnpj.js](https://github.com/BrasilAPI/BrasilAPI/blob/main/services/cnpj.js))"
+    },
+    "rate_limit_rpm": 60.0,
+    "rate_limit_basis": "assumed",
+    "status": "active",
+    "probe_2026_11_16": "200 found (00000000000191 -> 404)",
+    "display_name": "BrasilAPI",
+    "operator": {
+     "en": "Community open-source project (MIT), hosted on Vercel",
+     "pt": "Projeto comunitário de código aberto (MIT), hospedado na Vercel"
+    },
+    "website": "https://brasilapi.com.br",
+    "docs_url": "https://brasilapi.com.br/docs#tag/CNPJ",
+    "repo_url": "https://github.com/BrasilAPI/BrasilAPI",
+    "auth": {
+     "en": "none",
+     "pt": "nenhuma"
+    },
+    "limit_documented": {
+     "en": "not documented; the Vercel firewall answers 403/429 to empty or generic User-Agents ([#826](https://github.com/BrasilAPI/BrasilAPI/issues/826), [#835](https://github.com/BrasilAPI/BrasilAPI/issues/835))",
+     "pt": "não documentado; o firewall da Vercel responde 403/429 para User-Agent vazio ou genérico ([#826](https://github.com/BrasilAPI/BrasilAPI/issues/826), [#835](https://github.com/BrasilAPI/BrasilAPI/issues/835))"
+    },
+    "limit_observed": {
+     "en": "no 429 up to ~190 rpm; a second unpaced burst within one minute was answered 100% HTTP 429 (no Retry-After)",
+     "pt": "nenhum 429 até ~190 req/min; uma segunda rajada sem ritmo no mesmo minuto recebeu 100% HTTP 429 (sem Retry-After)"
+    },
+    "cadence": {
+     "en": "same as Minha Receita, plus Vercel edge cache (404 answers are cached too)",
+     "pt": "a mesma da Minha Receita, mais o cache de borda da Vercel (respostas 404 também ficam em cache)"
+    },
+    "terms": {
+     "en": "code MIT; no usage terms for the API found",
+     "pt": "código MIT; não foram encontrados termos de uso da API"
+    },
+    "python_check": "data = r.json() if r.status_code == 200 else None   # 404 = not found (may be a cached 404), 400 = invalid CNPJ",
+    "js_check": "const data = r.status === 200 ? await r.json() : null; // 404 may be a cached 404",
+    "connect_notes": {
+     "en": "Send a descriptive `User-Agent`. A 404 can be a stale cached answer: requesting the punctuated form (`/api/cnpj/v1/12.345.678%2F0001-95`) bypasses the cache entry of the bare form.",
+     "pt": "Envie um `User-Agent` descritivo. Um 404 pode ser resposta antiga em cache: pedir a forma pontuada (`/api/cnpj/v1/12.345.678%2F0001-95`) evita a entrada de cache da forma sem pontuação."
+    },
+    "rate_limit_response": {
+     "en": "HTTP 429, no rate-limit headers",
+     "pt": "HTTP 429, sem cabeçalhos de limite"
+    },
+    "issues": {
+     "en": [
+      "**Stale cached 404s.** 26 of 300 real CNPJs (8.7%) were answered 404; BrasilAPI forwards the bare CNPJ to Minha Receita, whose CDN served old cached 404s. All 26 were returned (200) when requested in punctuated form, which bypasses the cache. The skew towards S.A. companies matches the hypothesis that frequently queried CNPJs were cached during upstream outages; the cause was not determined.",
+      "Share capital above 16,777,216 is rounded (float32): 26 of 39 such values differ from the other sources, e.g. 4,443,409,696.10 → 4,443,410,000.",
+      "No e-mail address; street and number missing in 14% of records; Simples/MEI flags filled in 57% of records.",
+      "Inherits Minha Receita outages: 503 errors reported in October 2026 ([#916](https://github.com/BrasilAPI/BrasilAPI/issues/916), [#920](https://github.com/BrasilAPI/BrasilAPI/issues/920))."
+     ],
+     "pt": [
+      "**404 antigos em cache.** 26 de 300 CNPJs reais (8,7%) receberam 404; a BrasilAPI repassa o CNPJ sem pontuação à Minha Receita, cuja CDN serviu 404 antigos em cache. Os 26 foram retornados (200) quando pedidos na forma pontuada, que escapa do cache. A concentração em sociedades anônimas é compatível com a hipótese de CNPJs muito consultados terem entrado no cache durante falhas da origem; a causa não foi determinada.",
+      "Capital social acima de 16.777.216 é arredondado (float32): 26 de 39 valores nessa faixa diferem das outras fontes, ex.: 4.443.409.696,10 → 4.443.410.000.",
+      "Não retorna e-mail; logradouro e número ausentes em 14% dos registros; Simples/MEI preenchidos em 57% dos registros.",
+      "Herda as quedas da Minha Receita: erros 503 relatados em outubro de 2026 ([#916](https://github.com/BrasilAPI/BrasilAPI/issues/916), [#920](https://github.com/BrasilAPI/BrasilAPI/issues/920))."
+     ]
+    },
+    "verdict": {
+     "en": "Freshest data with no key and no documented limit, because it serves Minha Receita (2026-11 release live two days after publication). Treat 404 as 'retry in punctuated form', and do not use share capital above R$ 16.7 million as an exact value.",
+     "pt": "Dados mais frescos sem chave e sem limite documentado, porque serve a Minha Receita (base de 2026-11 no ar dois dias após a publicação). Trate 404 como 'tente de novo na forma pontuada' e não use capital social acima de R$ 16,7 milhões como valor exato."
+    }
+   }
+  },
+  "S02": {
+   "wave1": {
+    "runs": [
+     "R20261116T235549-S02-w1a",
+     "R20261117T000550-S02-w1b"
+    ],
+    "cnpjs_closed": 300,
+    "coverage": 0.9167,
+    "coverage_ci95": [
+     0.8799,
+     0.9429
+    ],
+    "outcomes": {
+     "found": 275,
+     "not_found": 25
+    },
+    "error_rate": 0.0,
+    "QI": 0.9385,
+    "completeness_mean": 0.9069,
+    "validity_mean": 0.9973,
+    "agreement_mean": 0.9941,
+    "fields": {
+     "legal_name": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "trade_name": {
+      "fill": 0.6582,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "establishment_type": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "registration_status": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 0.9964
+     },
+     "registration_status_date": {
+      "fill": 0.9927,
+      "relative_completeness": 0.9927,
+      "validity": 1.0,
+      "agreement": 0.9963
+     },
+     "opening_date": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "legal_nature_code": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "legal_nature": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "company_size": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "share_capital": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 0.9055
+     },
+     "main_cnae": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "secondary_cnaes": {
+      "fill": 0.7127,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "address_street": {
+      "fill": 0.8618,
+      "relative_completeness": 0.8618,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "address_number": {
+      "fill": 0.8618,
+      "relative_completeness": 0.8618,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "address_complement": {
+      "fill": 0.4473,
+      "relative_completeness": 0.9179,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "address_district": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "address_city": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "address_state": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "address_zip": {
+      "fill": 0.9964,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "address_city_ibge": {
+      "fill": 0.9964,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "phones": {
+      "fill": 0.8,
+      "relative_completeness": 0.8661,
+      "validity": 0.9364,
+      "agreement": 1.0
+     },
+     "email": {
+      "fill": 0.0,
+      "relative_completeness": 0.0,
+      "validity": null,
+      "agreement": null
+     },
+     "partners": {
+      "fill": 0.8036,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 0.9593
+     },
+     "simples_optant": {
+      "fill": 0.5855,
+      "relative_completeness": 0.5855,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "mei_optant": {
+      "fill": 0.5855,
+      "relative_completeness": 0.5855,
+      "validity": 1.0,
+      "agreement": 1.0
+     }
+    },
+    "consistency": {
+     "Q2_mojibake_rate": 0.0,
+     "Q3_establishment_consistency": 1.0,
+     "Q4_ibge_state_consistency": 1.0
+    },
+    "reference_agreement": {
+     "legal_name": 0.6945,
+     "address_state": 0.9853,
+     "address_city": 0.9286,
+     "address_zip": 0.7083,
+     "address_city_ibge": 0.975
+    },
+    "throughput": {
+     "T4_effective_rpm": 60.14,
+     "T5_latency_ms": {
+      "mean": 249.6,
+      "p50": 297.25,
+      "p95": 342.65,
+      "p99": 416.1400000000001
+     },
+     "T6_rate_limited_share": 0.0,
+     "T7_retries_per_cnpj": 0.0,
+     "configured_rpm": 60.0
+    }
+   },
+   "wave2": {
+    "steps": {
+     "w2a-x1": {
+      "run_id": "R20261117T030323-S02-w2a-x1",
+      "S1_attempted_rpm": 61.85,
+      "S2_found_rpm": 61.85,
+      "S3_first_429_at_attempt": null,
+      "S4_rate_limited_share": 0.0,
+      "S5_429_with_retry_after": null,
+      "S6_429_header_names": {},
+      "S7_other_errors": {},
+      "S8_latency_p50_found_ms": 32.15,
+      "mode": "ramp",
+      "label": "w2a-x1",
+      "status": "finished",
+      "paced_rpm": 60.0,
+      "concurrency": 1
+     },
+     "w2a-x2": {
+      "run_id": "R20261117T030355-S02-w2a-x2",
+      "S1_attempted_rpm": 123.47,
+      "S2_found_rpm": 123.47,
+      "S3_first_429_at_attempt": null,
+      "S4_rate_limited_share": 0.0,
+      "S5_429_with_retry_after": null,
+      "S6_429_header_names": {},
+      "S7_other_errors": {},
+      "S8_latency_p50_found_ms": 31.95,
+      "mode": "ramp",
+      "label": "w2a-x2",
+      "status": "finished",
+      "paced_rpm": 120.0,
+      "concurrency": 1
+     },
+     "w2a-x4": {
+      "run_id": "R20261117T030411-S02-w2a-x4",
+      "S1_attempted_rpm": 246.89,
+      "S2_found_rpm": 246.89,
+      "S3_first_429_at_attempt": null,
+      "S4_rate_limited_share": 0.0,
+      "S5_429_with_retry_after": null,
+      "S6_429_header_names": {},
+      "S7_other_errors": {},
+      "S8_latency_p50_found_ms": 33.35,
+      "mode": "ramp",
+      "label": "w2a-x4",
+      "status": "finished",
+      "paced_rpm": 240.0,
+      "concurrency": 1
+     },
+     "w2b-r1": {
+      "run_id": "R20261117T030420-S02-w2b-r1",
+      "S1_attempted_rpm": 5436.75,
+      "S2_found_rpm": 5436.75,
+      "S3_first_429_at_attempt": null,
+      "S4_rate_limited_share": 0.0,
+      "S5_429_with_retry_after": null,
+      "S6_429_header_names": {},
+      "S7_other_errors": {},
+      "S8_latency_p50_found_ms": 31.2,
+      "mode": "burst",
+      "label": "w2b-r1",
+      "status": "finished",
+      "paced_rpm": null,
+      "concurrency": 4
+     },
+     "w2b-r2": {
+      "run_id": "R20261117T030422-S02-w2b-r2",
+      "S1_attempted_rpm": 6310.48,
+      "S2_found_rpm": 6310.48,
+      "S3_first_429_at_attempt": null,
+      "S4_rate_limited_share": 0.0,
+      "S5_429_with_retry_after": null,
+      "S6_429_header_names": {},
+      "S7_other_errors": {},
+      "S8_latency_p50_found_ms": 31.15,
+      "mode": "burst",
+      "label": "w2b-r2",
+      "status": "finished",
+      "paced_rpm": null,
+      "concurrency": 4
+     }
+    },
+    "repeat_consistency": {
+     "pair": [
+      "R20261117T030420-S02-w2b-r1",
+      "R20261117T030422-S02-w2b-r2"
+     ],
+     "S9_found_in_both": 100,
+     "S10_identical_record_share": 1.0,
+     "S11_latency_p50_ratio": 0.998
+    }
+   },
+   "freshness": {
+    "newest_opening_date": "2026-11-14",
+    "recall_by_half_month": {
+     "2026-04-a": {
+      "found": 9,
+      "closed": 9,
+      "recall": 1.0,
+      "ci95": [
+       0.7008,
+       1.0
+      ]
+     },
+     "2026-04-b": {
+      "found": 19,
+      "closed": 19,
+      "recall": 1.0,
+      "ci95": [
+       0.8318,
+       1.0
+      ]
+     },
+     "2026-05-a": {
+      "found": 16,
+      "closed": 16,
+      "recall": 1.0,
+      "ci95": [
+       0.8064,
+       1.0
+      ]
+     },
+     "2026-05-b": {
+      "found": 15,
+      "closed": 15,
+      "recall": 1.0,
+      "ci95": [
+       0.7961,
+       1.0
+      ]
+     },
+     "2026-06-a": {
+      "found": 15,
+      "closed": 15,
+      "recall": 1.0,
+      "ci95": [
+       0.7961,
+       1.0
+      ]
+     },
+     "2026-06-b": {
+      "found": 13,
+      "closed": 13,
+      "recall": 1.0,
+      "ci95": [
+       0.7719,
+       1.0
+      ]
+     },
+     "2026-07-a": {
+      "found": 17,
+      "closed": 17,
+      "recall": 1.0,
+      "ci95": [
+       0.8157,
+       1.0
+      ]
+     },
+     "2026-07-b": {
+      "found": 16,
+      "closed": 16,
+      "recall": 1.0,
+      "ci95": [
+       0.8064,
+       1.0
+      ]
+     },
+     "2026-08-a": {
+      "found": 21,
+      "closed": 21,
+      "recall": 1.0,
+      "ci95": [
+       0.8454,
+       1.0
+      ]
+     },
+     "2026-08-b": {
+      "found": 17,
+      "closed": 17,
+      "recall": 1.0,
+      "ci95": [
+       0.8157,
+       1.0
+      ]
+     },
+     "2026-09-a": {
+      "found": 15,
+      "closed": 16,
+      "recall": 0.9375,
+      "ci95": [
+       0.7167,
+       0.9889
+      ]
+     },
+     "2026-09-b": {
+      "found": 16,
+      "closed": 16,
+      "recall": 1.0,
+      "ci95": [
+       0.8064,
+       1.0
+      ]
+     },
+     "2026-10-a": {
+      "found": 13,
+      "closed": 13,
+      "recall": 1.0,
+      "ci95": [
+       0.7719,
+       1.0
+      ]
+     },
+     "2026-10-b": {
+      "found": 22,
+      "closed": 22,
+      "recall": 1.0,
+      "ci95": [
+       0.8513,
+       1.0
+      ]
+     },
+     "2026-11-a": {
+      "found": 45,
+      "closed": 45,
+      "recall": 1.0,
+      "ci95": [
+       0.9213,
+       1.0
+      ]
+     },
+     "older": {
+      "found": 28,
+      "closed": 28,
+      "recall": 1.0,
+      "ci95": [
+       0.8794,
+       1.0
+      ]
+     }
+    },
+    "declared_record_age_days": null,
+    "alphanumeric_probe": {
+     "33000167000101": {
+      "http_status": 200,
+      "outcome": "found",
+      "message": ""
+     },
+     "33000167000102": {
+      "http_status": 400,
+      "outcome": "invalid_input",
+      "message": "{\"message\":\"CNPJ 33.000.167/0001-02 inválido.\"}"
+     },
+     "12ABC34501DE35": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": "{\"message\":\"CNPJ 12.ABC.345/01DE-35 não encontrado.\"}"
+     },
+     "DDPLWK0W000199": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": "{\"message\":\"CNPJ DD.PLW.K0W/0001-99 não encontrado.\"}"
+     },
+     "C0XWNWFX000155": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": "{\"message\":\"CNPJ C0.XWN.WFX/0001-55 não encontrado.\"}"
+     },
+     "RZMZG2ER000147": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": "{\"message\":\"CNPJ RZ.MZG.2ER/0001-47 não encontrado.\"}"
+     },
+     "PT7TDBE0000100": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": "{\"message\":\"CNPJ PT.7TD.BE0/0001-00 não encontrado.\"}"
+     },
+     "0DPVAC8F000110": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": "{\"message\":\"CNPJ 0D.PVA.C8F/0001-10 não encontrado.\"}"
+     },
+     "YZFP7A5D000100": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": "{\"message\":\"CNPJ YZ.FP7.A5D/0001-00 não encontrado.\"}"
+     },
+     "SDV0Q7BK000108": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": "{\"message\":\"CNPJ SD.V0Q.7BK/0001-08 não encontrado.\"}"
+     },
+     "IRFOO7TZ000126": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": "{\"message\":\"CNPJ IR.FOO.7TZ/0001-26 não encontrado.\"}"
+     },
+     "7JOPXEVF000186": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": "{\"message\":\"CNPJ 7J.OPX.EVF/0001-86 não encontrado.\"}"
+     }
+    }
+   },
+   "catalog": {
+    "source_id": "S02",
+    "slug": "minhareceita",
+    "name": "Minha Receita (public instance)",
+    "url_template": "https://minhareceita.org/{cnpj}",
+    "access": "free_no_key",
+    "open_source": true,
+    "upstream": {
+     "en": "Receita Federal monthly open-data release, downloaded from the official share ([download/webdav.go](https://codeberg.org/cuducos/minha-receita/src/branch/main/download/webdav.go)); `/updated` answered `2026-11`",
+     "pt": "base mensal de dados abertos da Receita Federal, baixada do compartilhamento oficial ([download/webdav.go](https://codeberg.org/cuducos/minha-receita/src/branch/main/download/webdav.go)); `/updated` respondeu `2026-11`"
+    },
+    "rate_limit_rpm": 60.0,
+    "rate_limit_basis": "assumed",
+    "status": "active",
+    "probe_2026_11_16": "200 found (00000000000191 -> 404)",
+    "display_name": "Minha Receita",
+    "operator": {
+     "en": "Open-source project maintained by an individual developer, funded by donations; code moved to Codeberg",
+     "pt": "Projeto de código aberto mantido por um desenvolvedor, financiado por doações; código migrado para o Codeberg"
+    },
+    "website": "https://minhareceita.org",
+    "docs_url": "https://docs.minhareceita.org",
+    "repo_url": "https://codeberg.org/cuducos/minha-receita",
+    "auth": {
+     "en": "none",
+     "pt": "nenhuma"
+    },
+    "limit_documented": {
+     "en": "no rate limit by design ([PR #99](https://codeberg.org/cuducos/minha-receita/pulls/99)); self-hosting is recommended for heavy use",
+     "pt": "sem limite por decisão de projeto ([PR #99](https://codeberg.org/cuducos/minha-receita/pulls/99)); para uso intenso recomenda-se hospedar a própria instância"
+    },
+    "limit_observed": {
+     "en": "no 429 at ~6,300 rpm (4 concurrent requests, cached CNPJs)",
+     "pt": "nenhum 429 a ~6.300 req/min (4 simultâneas, CNPJs em cache)"
+    },
+    "cadence": {
+     "en": "monthly, manually, 'normally a few days after the release' ([FAQ](https://docs.minhareceita.org/faq/)); 2026-11 release (extracted 2026-11-14) was live on 2026-11-16",
+     "pt": "mensal, manual, 'normalmente poucos dias após a publicação' ([FAQ](https://docs.minhareceita.org/faq/)); a base de 2026-11 (extraída em 14/11/2026) estava no ar em 16/11/2026"
+    },
+    "terms": {
+     "en": "code MIT; no terms of use for the public instance found",
+     "pt": "código MIT; não foram encontrados termos de uso da instância pública"
+    },
+    "python_check": "data = r.json() if r.status_code == 200 else None   # 404 = not found (may be a cached 404), 400 = invalid CNPJ",
+    "js_check": "const data = r.status === 200 ? await r.json() : null; // 404 may be a cached 404",
+    "connect_notes": {
+     "en": "Cloudflare caches answers for up to 5 days (`max-age=432000`), including 404. Requesting the punctuated form (`/12.345.678%2F0001-95`) bypasses a stale entry. `/updated` returns the release month. For volume, run your own instance (Docker, PostgreSQL).",
+     "pt": "A Cloudflare guarda respostas por até 5 dias (`max-age=432000`), inclusive 404. Pedir a forma pontuada (`/12.345.678%2F0001-95`) evita uma entrada antiga. `/updated` informa o mês da base. Para volume, rode sua própria instância (Docker, PostgreSQL)."
+    },
+    "issues": {
+     "en": [
+      "**Stale cached 404s.** 22 of 300 real CNPJs (7.3%) were answered 404 with `cf-cache-status: HIT`; all 22 were returned (200) in punctuated form. Known mechanism: 404s minted during reloads or outages stay cached ([#1](https://codeberg.org/cuducos/minha-receita/issues/1), [#98](https://codeberg.org/cuducos/minha-receita/issues/98)).",
+      "Share capital above 16,777,216 is rounded (float32).",
+      "No e-mail address; street and number missing in 14% of records; Simples/MEI flags filled in 59% of records.",
+      "Outages: ~99% HTTP 503 on 2026-10-08/09 ([#98](https://codeberg.org/cuducos/minha-receita/issues/98))."
+     ],
+     "pt": [
+      "**404 antigos em cache.** 22 de 300 CNPJs reais (7,3%) receberam 404 com `cf-cache-status: HIT`; os 22 foram retornados (200) na forma pontuada. Mecanismo conhecido: 404 gerados durante recargas ou quedas permanecem em cache ([#1](https://codeberg.org/cuducos/minha-receita/issues/1), [#98](https://codeberg.org/cuducos/minha-receita/issues/98)).",
+      "Capital social acima de 16.777.216 é arredondado (float32).",
+      "Não retorna e-mail; logradouro e número ausentes em 14% dos registros; Simples/MEI preenchidos em 59% dos registros.",
+      "Quedas: ~99% HTTP 503 em 08–09/10/2026 ([#98](https://codeberg.org/cuducos/minha-receita/issues/98))."
+     ]
+    },
+    "verdict": {
+     "en": "Freshest source measured (companies opened up to 2026-11-14 present on 2026-11-16), no key, no limit, open source and self-hostable. Weak points: cached 404s, rounded share capital, no e-mail.",
+     "pt": "Fonte mais fresca medida (empresas abertas até 14/11/2026 presentes em 16/11/2026), sem chave, sem limite, código aberto e auto-hospedável. Pontos fracos: 404 em cache, capital social arredondado, sem e-mail."
+    }
+   }
+  },
+  "S03": {
+   "wave1": {
+    "runs": [
+     "R20261116T235549-S03-w1a",
+     "R20261117T003514-S03-w1b"
+    ],
+    "cnpjs_closed": 300,
+    "coverage": 0.99,
+    "coverage_ci95": [
+     0.971,
+     0.9966
+    ],
+    "outcomes": {
+     "found": 297,
+     "not_found": 3
+    },
+    "error_rate": 0.0,
+    "QI": 0.891,
+    "completeness_mean": 0.9303,
+    "validity_mean": 0.9971,
+    "agreement_mean": 0.9896,
+    "fields": {
+     "legal_name": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "trade_name": {
+      "fill": 0.6633,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "establishment_type": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "registration_status": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "registration_status_date": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "opening_date": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "legal_nature_code": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "legal_nature": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "company_size": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "share_capital": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 0.9562
+     },
+     "main_cnae": {
+      "fill": 0.7273,
+      "relative_completeness": 0.7273,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "secondary_cnaes": {
+      "fill": 0.5051,
+      "relative_completeness": 0.7075,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "address_street": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 0.9596
+     },
+     "address_number": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "address_complement": {
+      "fill": 0.4848,
+      "relative_completeness": 0.9931,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "address_district": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "address_city": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "address_state": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "address_zip": {
+      "fill": 0.9966,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "address_city_ibge": {
+      "fill": 0.0,
+      "relative_completeness": 0.0,
+      "validity": null,
+      "agreement": null
+     },
+     "phones": {
+      "fill": 0.9259,
+      "relative_completeness": 1.0,
+      "validity": 0.9309,
+      "agreement": 0.8545
+     },
+     "email": {
+      "fill": 0.7946,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 0.9958
+     },
+     "partners": {
+      "fill": 0.6734,
+      "relative_completeness": 0.8299,
+      "validity": 1.0,
+      "agreement": 0.985
+     },
+     "simples_optant": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "mei_optant": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     }
+    },
+    "consistency": {
+     "Q2_mojibake_rate": 0.0,
+     "Q3_establishment_consistency": 1.0,
+     "Q4_ibge_state_consistency": null
+    },
+    "reference_agreement": {
+     "legal_name": 0.6902,
+     "address_state": 0.974,
+     "address_city": 0.9241,
+     "address_zip": 0.6792,
+     "address_city_ibge": null
+    },
+    "throughput": {
+     "T4_effective_rpm": 2.54,
+     "T5_latency_ms": {
+      "mean": 242.4,
+      "p50": 237.8,
+      "p95": 286.96,
+      "p99": 394.53600000000006
+     },
+     "T6_rate_limited_share": 0.1597,
+     "T7_retries_per_cnpj": 0.19,
+     "configured_rpm": 3.0
+    }
+   },
+   "wave2": {
+    "steps": {
+     "w2a-x1": {
+      "run_id": "R20261117T033156-S03-w2a-x1",
+      "S1_attempted_rpm": 3.1,
+      "S2_found_rpm": 2.61,
+      "S3_first_429_at_attempt": 2,
+      "S4_rate_limited_share": 0.1562,
+      "S5_429_with_retry_after": 0.0,
+      "S6_429_header_names": {
+       "x-ratelimit-limit": 5,
+       "x-ratelimit-remaining": 5
+      },
+      "S7_other_errors": {},
+      "S8_latency_p50_found_ms": 234.8,
+      "mode": "ramp",
+      "label": "w2a-x1",
+      "status": "finished",
+      "paced_rpm": 3.0,
+      "concurrency": 1
+     },
+     "w2a-x2": {
+      "run_id": "R20261117T034217-S03-w2a-x2",
+      "S1_attempted_rpm": 6.19,
+      "S2_found_rpm": 2.71,
+      "S3_first_429_at_attempt": 2,
+      "S4_rate_limited_share": 0.5625,
+      "S5_429_with_retry_after": 0.0,
+      "S6_429_header_names": {
+       "x-ratelimit-limit": 18,
+       "x-ratelimit-remaining": 18
+      },
+      "S7_other_errors": {},
+      "S8_latency_p50_found_ms": 228.6,
+      "mode": "ramp",
+      "label": "w2a-x2",
+      "status": "finished",
+      "paced_rpm": 6.0,
+      "concurrency": 1
+     },
+     "w2a-x4": {
+      "run_id": "R20261117T034728-S03-w2a-x4",
+      "S1_attempted_rpm": 12.45,
+      "S2_found_rpm": 2.77,
+      "S3_first_429_at_attempt": 0,
+      "S4_rate_limited_share": 0.7778,
+      "S5_429_with_retry_after": 0.0,
+      "S6_429_header_names": {
+       "x-ratelimit-limit": 21,
+       "x-ratelimit-remaining": 21
+      },
+      "S7_other_errors": {},
+      "S8_latency_p50_found_ms": 168.0,
+      "mode": "ramp",
+      "label": "w2a-x4",
+      "status": "stopped_breaker",
+      "paced_rpm": 12.0,
+      "concurrency": 1
+     },
+     "w2b-r1": {
+      "run_id": "R20261117T034939-S03-w2b-r1",
+      "S1_attempted_rpm": 1103.3,
+      "S2_found_rpm": 194.7,
+      "S3_first_429_at_attempt": 2,
+      "S4_rate_limited_share": 0.8235,
+      "S5_429_with_retry_after": 0.0,
+      "S6_429_header_names": {
+       "x-ratelimit-limit": 14,
+       "x-ratelimit-remaining": 14
+      },
+      "S7_other_errors": {},
+      "S8_latency_p50_found_ms": 276.1,
+      "mode": "burst",
+      "label": "w2b-r1",
+      "status": "stopped_breaker",
+      "paced_rpm": null,
+      "concurrency": 4
+     },
+     "w2b-r2": {
+      "run_id": "R20261117T034941-S03-w2b-r2",
+      "S1_attempted_rpm": 1171.35,
+      "S2_found_rpm": 0.0,
+      "S3_first_429_at_attempt": 0,
+      "S4_rate_limited_share": 1.0,
+      "S5_429_with_retry_after": 0.0,
+      "S6_429_header_names": {
+       "x-ratelimit-limit": 13,
+       "x-ratelimit-remaining": 13
+      },
+      "S7_other_errors": {},
+      "S8_latency_p50_found_ms": null,
+      "mode": "burst",
+      "label": "w2b-r2",
+      "status": "stopped_breaker",
+      "paced_rpm": null,
+      "concurrency": 4
+     }
+    },
+    "repeat_consistency": {
+     "pair": [
+      "R20261117T034939-S03-w2b-r1",
+      "R20261117T034941-S03-w2b-r2"
+     ],
+     "S9_found_in_both": 0,
+     "S10_identical_record_share": null,
+     "S11_latency_p50_ratio": null
+    }
+   },
+   "freshness": {
+    "newest_opening_date": "2026-10-27",
+    "recall_by_half_month": {
+     "2026-04-a": {
+      "found": 2,
+      "closed": 2,
+      "recall": 1.0,
+      "ci95": [
+       0.3424,
+       1.0
+      ]
+     },
+     "2026-04-b": {
+      "found": 4,
+      "closed": 4,
+      "recall": 1.0,
+      "ci95": [
+       0.5101,
+       1.0
+      ]
+     },
+     "2026-05-a": {
+      "found": 4,
+      "closed": 4,
+      "recall": 1.0,
+      "ci95": [
+       0.5101,
+       1.0
+      ]
+     },
+     "2026-05-b": {
+      "found": 2,
+      "closed": 2,
+      "recall": 1.0,
+      "ci95": [
+       0.3424,
+       1.0
+      ]
+     },
+     "2026-06-a": {
+      "found": 3,
+      "closed": 3,
+      "recall": 1.0,
+      "ci95": [
+       0.4385,
+       1.0
+      ]
+     },
+     "2026-06-b": {
+      "found": 4,
+      "closed": 4,
+      "recall": 1.0,
+      "ci95": [
+       0.5101,
+       1.0
+      ]
+     },
+     "2026-07-a": {
+      "found": 4,
+      "closed": 4,
+      "recall": 1.0,
+      "ci95": [
+       0.5101,
+       1.0
+      ]
+     },
+     "2026-07-b": {
+      "found": 4,
+      "closed": 4,
+      "recall": 1.0,
+      "ci95": [
+       0.5101,
+       1.0
+      ]
+     },
+     "2026-08-a": {
+      "found": 4,
+      "closed": 4,
+      "recall": 1.0,
+      "ci95": [
+       0.5101,
+       1.0
+      ]
+     },
+     "2026-08-b": {
+      "found": 6,
+      "closed": 6,
+      "recall": 1.0,
+      "ci95": [
+       0.6097,
+       1.0
+      ]
+     },
+     "2026-09-a": {
+      "found": 4,
+      "closed": 4,
+      "recall": 1.0,
+      "ci95": [
+       0.5101,
+       1.0
+      ]
+     },
+     "2026-09-b": {
+      "found": 3,
+      "closed": 3,
+      "recall": 1.0,
+      "ci95": [
+       0.4385,
+       1.0
+      ]
+     },
+     "2026-10-a": {
+      "found": 3,
+      "closed": 3,
+      "recall": 1.0,
+      "ci95": [
+       0.4385,
+       1.0
+      ]
+     },
+     "2026-10-b": {
+      "found": 5,
+      "closed": 5,
+      "recall": 1.0,
+      "ci95": [
+       0.5655,
+       1.0
+      ]
+     },
+     "2026-11-a": {
+      "found": 0,
+      "closed": 2,
+      "recall": 0.0,
+      "ci95": [
+       0.0,
+       0.6576
+      ]
+     },
+     "older": {
+      "found": 5,
+      "closed": 5,
+      "recall": 1.0,
+      "ci95": [
+       0.5655,
+       1.0
+      ]
+     }
+    },
+    "declared_record_age_days": {
+     "key": "ultima_atualizacao",
+     "n": 354,
+     "p10_days": 2.0,
+     "p50_days": 35.0,
+     "p90_days": 35.1,
+     "max_days": 35.1
+    },
+    "alphanumeric_probe": {
+     "33000167000101": {
+      "http_status": 200,
+      "outcome": "found",
+      "message": ""
+     },
+     "33000167000102": {
+      "http_status": 400,
+      "outcome": "invalid_input",
+      "message": "{\n  \"status\": \"ERROR\",\n  \"message\": \"CNPJ inválido\"\n}"
+     },
+     "12ABC34501DE35": {
+      "http_status": 200,
+      "outcome": "not_found",
+      "message": "{\n  \"cnpj\": \"12.ABC.345/01DE-35\",\n  \"ultima_atualizacao\": \"2026-11-10T18:44:35.100Z\",\n  \"status\": \"ERROR\",\n  \"message\": "
+     },
+     "DDPLWK0W000199": {
+      "http_status": 404,
+      "outcome": "restricted",
+      "message": "{\n  \"status\": \"ERROR\",\n  \"message\": \"not in cache\"\n}"
+     },
+     "C0XWNWFX000155": {
+      "http_status": 404,
+      "outcome": "restricted",
+      "message": "{\n  \"status\": \"ERROR\",\n  \"message\": \"not in cache\"\n}"
+     },
+     "RZMZG2ER000147": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": "{\n  \"status\": \"ERROR\",\n  \"message\": \"not in cache\"\n}"
+     },
+     "PT7TDBE0000100": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": "{\n  \"status\": \"ERROR\",\n  \"message\": \"not in cache\"\n}"
+     },
+     "0DPVAC8F000110": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": "{\n  \"status\": \"ERROR\",\n  \"message\": \"not in cache\"\n}"
+     },
+     "YZFP7A5D000100": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": "{\n  \"status\": \"ERROR\",\n  \"message\": \"not in cache\"\n}"
+     },
+     "SDV0Q7BK000108": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": "{\n  \"status\": \"ERROR\",\n  \"message\": \"not in cache\"\n}"
+     },
+     "IRFOO7TZ000126": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": "{\n  \"status\": \"ERROR\",\n  \"message\": \"not in cache\"\n}"
+     },
+     "7JOPXEVF000186": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": "{\n  \"status\": \"ERROR\",\n  \"message\": \"not in cache\"\n}"
+     }
+    }
+   },
+   "catalog": {
+    "source_id": "S03",
+    "slug": "receitaws",
+    "name": "ReceitaWS (free tier)",
+    "url_template": "https://receitaws.com.br/v1/cnpj/{cnpj}",
+    "access": "free_no_key",
+    "open_source": false,
+    "upstream": {
+     "en": "lookups of the Receita Federal website, stored in its own cache; the free API serves the cache only, a CNPJ not cached answers HTTP 504 ([spec](https://developers.receitaws.com.br/receitaws.yaml))",
+     "pt": "consultas ao site da Receita Federal guardadas em cache próprio; a API gratuita serve só o cache, um CNPJ fora do cache responde HTTP 504 ([spec](https://developers.receitaws.com.br/receitaws.yaml))"
+    },
+    "rate_limit_rpm": 3.0,
+    "rate_limit_basis": "observed",
+    "status": "active",
+    "probe_2026_11_16": "200 found; X-RateLimit-Limit: 3",
+    "display_name": "ReceitaWS",
+    "operator": {
+     "en": "Commercial company (ReceitaWS)",
+     "pt": "Empresa comercial (ReceitaWS)"
+    },
+    "website": "https://receitaws.com.br",
+    "docs_url": "https://developers.receitaws.com.br",
+    "repo_url": null,
+    "auth": {
+     "en": "none (free tier)",
+     "pt": "nenhuma (plano gratuito)"
+    },
+    "limit_documented": {
+     "en": "3 requests per minute (free tier)",
+     "pt": "3 requisições por minuto (plano gratuito)"
+    },
+    "limit_observed": {
+     "en": "`X-RateLimit-Limit: 3`; 16% of requests answered 429 even when paced at 3 rpm",
+     "pt": "`X-RateLimit-Limit: 3`; 16% das requisições receberam 429 mesmo no ritmo de 3 req/min"
+    },
+    "cadence": {
+     "en": "per record (`ultima_atualizacao`)",
+     "pt": "por registro (`ultima_atualizacao`)"
+    },
+    "terms": {
+     "en": "personal benefit only, no commercial use ([terms](https://receitaws.com.br/terms.pdf))",
+     "pt": "apenas para benefício próprio, sem comercialização ([termos](https://receitaws.com.br/terms.pdf))"
+    },
+    "python_check": "data = r.json(); ok = r.status_code == 200 and data.get('status') != 'ERROR'   # errors come as HTTP 200",
+    "js_check": "const data = await r.json(); const ok = r.status === 200 && data.status !== 'ERROR'; // errors come as HTTP 200",
+    "connect_notes": {
+     "en": "Errors are returned with HTTP 200 and `{\"status\": \"ERROR\", \"message\": ...}`. Dates are `dd/mm/yyyy`; legal nature is `\"206-2 - Sociedade Empresária Limitada\"`.",
+     "pt": "Erros vêm com HTTP 200 e `{\"status\": \"ERROR\", \"message\": ...}`. Datas em `dd/mm/aaaa`; natureza jurídica como `\"206-2 - Sociedade Empresária Limitada\"`."
+    },
+    "rate_limit_response": {
+     "en": "HTTP 429 with `X-RateLimit-Limit`, `X-RateLimit-Remaining`",
+     "pt": "HTTP 429 com `X-RateLimit-Limit`, `X-RateLimit-Remaining`"
+    },
+    "issues": {
+     "en": [
+      "Main CNAE missing in 27% and partner list in 17% of the records where other sources have them.",
+      "No IBGE municipality code.",
+      "Phone field is free text and includes the fax number.",
+      "Effective throughput 2.5 CNPJs per minute."
+     ],
+     "pt": [
+      "CNAE principal ausente em 27% e quadro societário em 17% dos registros em que outras fontes os têm.",
+      "Não retorna código IBGE do município.",
+      "Telefone em texto livre, incluindo o fax.",
+      "Vazão efetiva de 2,5 CNPJs por minuto."
+     ]
+    },
+    "verdict": {
+     "en": "Good coverage but the slowest practical rate and terms that forbid commercial use. Use only for occasional manual lookups.",
+     "pt": "Boa cobertura, mas o ritmo prático mais lento e termos que proíbem uso comercial. Só para consultas ocasionais."
+    }
+   }
+  },
+  "S04": {
+   "wave1": {
+    "runs": [
+     "R20261116T235549-S04-w1a",
+     "R20261117T001846-S04-w1b"
+    ],
+    "cnpjs_closed": 300,
+    "coverage": 0.99,
+    "coverage_ci95": [
+     0.971,
+     0.9966
+    ],
+    "outcomes": {
+     "found": 297,
+     "not_found": 3
+    },
+    "error_rate": 0.0,
+    "QI": 0.9221,
+    "completeness_mean": 0.9976,
+    "validity_mean": 1.0,
+    "agreement_mean": 0.9944,
+    "fields": {
+     "legal_name": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "trade_name": {
+      "fill": 0.6633,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "establishment_type": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "registration_status": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "registration_status_date": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "opening_date": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "legal_nature_code": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "legal_nature": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 0.9865
+     },
+     "company_size": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "share_capital": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 0.9596
+     },
+     "main_cnae": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "secondary_cnaes": {
+      "fill": 0.7138,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "address_street": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "address_number": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "address_complement": {
+      "fill": 0.4848,
+      "relative_completeness": 0.9931,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "address_district": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "address_city": {
+      "fill": 0.9966,
+      "relative_completeness": 0.9966,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "address_state": {
+      "fill": 0.9966,
+      "relative_completeness": 0.9966,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "address_zip": {
+      "fill": 0.9966,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "address_city_ibge": {
+      "fill": 0.9966,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "phones": {
+      "fill": 0.8822,
+      "relative_completeness": 0.9527,
+      "validity": 1.0,
+      "agreement": 0.9504
+     },
+     "email": {
+      "fill": 0.7946,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "partners": {
+      "fill": 0.8114,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 0.9627
+     },
+     "simples_optant": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "mei_optant": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     }
+    },
+    "consistency": {
+     "Q2_mojibake_rate": 0.0,
+     "Q3_establishment_consistency": 1.0,
+     "Q4_ibge_state_consistency": 1.0
+    },
+    "reference_agreement": {
+     "legal_name": 0.6902,
+     "address_state": 0.974,
+     "address_city": 0.9241,
+     "address_zip": 0.6792,
+     "address_city_ibge": 0.9574
+    },
+    "throughput": {
+     "T4_effective_rpm": 4.49,
+     "T5_latency_ms": {
+      "mean": 383.4,
+      "p50": 326.05,
+      "p95": 538.02,
+      "p99": 2217.119
+     },
+     "T6_rate_limited_share": 0.1071,
+     "T7_retries_per_cnpj": 0.12,
+     "configured_rpm": 5.0
+    }
+   },
+   "wave2": {
+    "steps": {
+     "w2a-x1": {
+      "run_id": "R20261117T033223-S04-w2a-x1",
+      "S1_attempted_rpm": 5.16,
+      "S2_found_rpm": 4.51,
+      "S3_first_429_at_attempt": 3,
+      "S4_rate_limited_share": 0.125,
+      "S5_429_with_retry_after": 0.0,
+      "S6_429_header_names": {},
+      "S7_other_errors": {},
+      "S8_latency_p50_found_ms": 288.9,
+      "mode": "ramp",
+      "label": "w2a-x1",
+      "status": "finished",
+      "paced_rpm": 5.0,
+      "concurrency": 1
+     },
+     "w2a-x2": {
+      "run_id": "R20261117T033836-S04-w2a-x2",
+      "S1_attempted_rpm": 10.31,
+      "S2_found_rpm": 5.48,
+      "S3_first_429_at_attempt": 5,
+      "S4_rate_limited_share": 0.4688,
+      "S5_429_with_retry_after": 0.0,
+      "S6_429_header_names": {},
+      "S7_other_errors": {},
+      "S8_latency_p50_found_ms": 289.5,
+      "mode": "ramp",
+      "label": "w2a-x2",
+      "status": "finished",
+      "paced_rpm": 10.0,
+      "concurrency": 1
+     },
+     "w2a-x4": {
+      "run_id": "R20261117T034143-S04-w2a-x4",
+      "S1_attempted_rpm": 21.56,
+      "S2_found_rpm": 4.98,
+      "S3_first_429_at_attempt": 3,
+      "S4_rate_limited_share": 0.7692,
+      "S5_429_with_retry_after": 0.0,
+      "S6_429_header_names": {},
+      "S7_other_errors": {},
+      "S8_latency_p50_found_ms": 192.8,
+      "mode": "ramp",
+      "label": "w2a-x4",
+      "status": "stopped_breaker",
+      "paced_rpm": 20.0,
+      "concurrency": 1
+     },
+     "w2b-r1": {
+      "run_id": "R20261117T034220-S04-w2b-r1",
+      "S1_attempted_rpm": 958.23,
+      "S2_found_rpm": 0.0,
+      "S3_first_429_at_attempt": 0,
+      "S4_rate_limited_share": 1.0,
+      "S5_429_with_retry_after": 0.0,
+      "S6_429_header_names": {},
+      "S7_other_errors": {},
+      "S8_latency_p50_found_ms": null,
+      "mode": "burst",
+      "label": "w2b-r1",
+      "status": "stopped_breaker",
+      "paced_rpm": null,
+      "concurrency": 4
+     },
+     "w2b-r2": {
+      "run_id": "R20261117T034222-S04-w2b-r2",
+      "S1_attempted_rpm": 957.88,
+      "S2_found_rpm": 0.0,
+      "S3_first_429_at_attempt": 0,
+      "S4_rate_limited_share": 1.0,
+      "S5_429_with_retry_after": 0.0,
+      "S6_429_header_names": {},
+      "S7_other_errors": {},
+      "S8_latency_p50_found_ms": null,
+      "mode": "burst",
+      "label": "w2b-r2",
+      "status": "stopped_breaker",
+      "paced_rpm": null,
+      "concurrency": 4
+     }
+    },
+    "repeat_consistency": {
+     "pair": [
+      "R20261117T034220-S04-w2b-r1",
+      "R20261117T034222-S04-w2b-r2"
+     ],
+     "S9_found_in_both": 0,
+     "S10_identical_record_share": null,
+     "S11_latency_p50_ratio": null
+    }
+   },
+   "freshness": {
+    "newest_opening_date": "2026-11-10",
+    "recall_by_half_month": {
+     "2026-04-a": {
+      "found": 2,
+      "closed": 2,
+      "recall": 1.0,
+      "ci95": [
+       0.3424,
+       1.0
+      ]
+     },
+     "2026-04-b": {
+      "found": 4,
+      "closed": 4,
+      "recall": 1.0,
+      "ci95": [
+       0.5101,
+       1.0
+      ]
+     },
+     "2026-05-a": {
+      "found": 4,
+      "closed": 4,
+      "recall": 1.0,
+      "ci95": [
+       0.5101,
+       1.0
+      ]
+     },
+     "2026-05-b": {
+      "found": 2,
+      "closed": 2,
+      "recall": 1.0,
+      "ci95": [
+       0.3424,
+       1.0
+      ]
+     },
+     "2026-06-a": {
+      "found": 3,
+      "closed": 3,
+      "recall": 1.0,
+      "ci95": [
+       0.4385,
+       1.0
+      ]
+     },
+     "2026-06-b": {
+      "found": 4,
+      "closed": 4,
+      "recall": 1.0,
+      "ci95": [
+       0.5101,
+       1.0
+      ]
+     },
+     "2026-07-a": {
+      "found": 4,
+      "closed": 4,
+      "recall": 1.0,
+      "ci95": [
+       0.5101,
+       1.0
+      ]
+     },
+     "2026-07-b": {
+      "found": 4,
+      "closed": 4,
+      "recall": 1.0,
+      "ci95": [
+       0.5101,
+       1.0
+      ]
+     },
+     "2026-08-a": {
+      "found": 4,
+      "closed": 4,
+      "recall": 1.0,
+      "ci95": [
+       0.5101,
+       1.0
+      ]
+     },
+     "2026-08-b": {
+      "found": 6,
+      "closed": 6,
+      "recall": 1.0,
+      "ci95": [
+       0.6097,
+       1.0
+      ]
+     },
+     "2026-09-a": {
+      "found": 5,
+      "closed": 5,
+      "recall": 1.0,
+      "ci95": [
+       0.5655,
+       1.0
+      ]
+     },
+     "2026-09-b": {
+      "found": 3,
+      "closed": 3,
+      "recall": 1.0,
+      "ci95": [
+       0.4385,
+       1.0
+      ]
+     },
+     "2026-10-a": {
+      "found": 3,
+      "closed": 3,
+      "recall": 1.0,
+      "ci95": [
+       0.4385,
+       1.0
+      ]
+     },
+     "2026-10-b": {
+      "found": 7,
+      "closed": 7,
+      "recall": 1.0,
+      "ci95": [
+       0.6457,
+       1.0
+      ]
+     },
+     "2026-11-a": {
+      "found": 23,
+      "closed": 36,
+      "recall": 0.6389,
+      "ci95": [
+       0.4757,
+       0.7752
+      ]
+     },
+     "older": {
+      "found": 10,
+      "closed": 10,
+      "recall": 1.0,
+      "ci95": [
+       0.7225,
+       1.0
+      ]
+     }
+    },
+    "declared_record_age_days": {
+     "key": "updated",
+     "n": 385,
+     "p10_days": 7.1,
+     "p50_days": 38.0,
+     "p90_days": 38.1,
+     "max_days": 89.1
+    },
+    "alphanumeric_probe": {
+     "33000167000101": {
+      "http_status": 200,
+      "outcome": "found",
+      "message": ""
+     },
+     "33000167000102": {
+      "http_status": 400,
+      "outcome": "invalid_input",
+      "message": "{\"code\":400,\"message\":\"request validation failed\",\"constraints\":[\"taxId must be a string that obeys cnpj verification al"
+     },
+     "12ABC34501DE35": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": "{\"code\":404,\"message\":\"tax id not registered at revenue service\"}"
+     },
+     "DDPLWK0W000199": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": "{\"code\":404,\"message\":\"tax id not registered at revenue service\"}"
+     },
+     "C0XWNWFX000155": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": "{\"code\":404,\"message\":\"tax id not registered at revenue service\"}"
+     },
+     "RZMZG2ER000147": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": "{\"code\":404,\"message\":\"tax id not registered at revenue service\"}"
+     },
+     "PT7TDBE0000100": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": "{\"code\":404,\"message\":\"tax id not registered at revenue service\"}"
+     },
+     "0DPVAC8F000110": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": "{\"code\":404,\"message\":\"tax id not registered at revenue service\"}"
+     },
+     "YZFP7A5D000100": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": "{\"code\":404,\"message\":\"tax id not registered at revenue service\"}"
+     },
+     "SDV0Q7BK000108": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": "{\"code\":404,\"message\":\"tax id not registered at revenue service\"}"
+     },
+     "IRFOO7TZ000126": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": "{\"code\":404,\"message\":\"tax id not registered at revenue service\"}"
+     },
+     "7JOPXEVF000186": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": "{\"code\":404,\"message\":\"tax id not registered at revenue service\"}"
+     }
+    }
+   },
+   "catalog": {
+    "source_id": "S04",
+    "slug": "cnpja_open",
+    "name": "CNPJa Open",
+    "url_template": "https://open.cnpja.com/office/{cnpj}",
+    "access": "free_no_key",
+    "open_source": false,
+    "upstream": {
+     "en": "own aggregation of Receita Federal and Simples Nacional data; states that it is not the original source ([terms](https://cnpja.com/subscription/tos))",
+     "pt": "agregação própria de dados da Receita Federal e do Simples Nacional; declara não ser a fonte original ([termos](https://cnpja.com/subscription/tos))"
+    },
+    "rate_limit_rpm": 5.0,
+    "rate_limit_basis": "documented",
+    "status": "active",
+    "probe_2026_11_16": "200 found",
+    "display_name": "CNPJá Open",
+    "operator": {
+     "en": "Commercial company (CNPJá), free public tier",
+     "pt": "Empresa comercial (CNPJá), plano público gratuito"
+    },
+    "website": "https://cnpja.com",
+    "docs_url": "https://cnpja.com/api/open",
+    "repo_url": null,
+    "auth": {
+     "en": "none",
+     "pt": "nenhuma"
+    },
+    "limit_documented": {
+     "en": "5 requests per minute per IP ([cnpja.com/api/open](https://cnpja.com/api/open))",
+     "pt": "5 requisições por minuto por IP ([cnpja.com/api/open](https://cnpja.com/api/open))"
+    },
+    "limit_observed": {
+     "en": "11% of requests answered 429 even when paced at 5 rpm",
+     "pt": "11% das requisições receberam 429 mesmo no ritmo de 5 req/min"
+    },
+    "cadence": {
+     "en": "'update guarantee of 45 days or less for active establishments' ([cnpja.com/api/open](https://cnpja.com/api/open)); per record (`updated`)",
+     "pt": "'garantia de atualização de 45 dias ou menos para estabelecimentos ativos' ([cnpja.com/api/open](https://cnpja.com/api/open)); por registro (`updated`)"
+    },
+    "terms": {
+     "en": "see [terms](https://cnpja.com/subscription/tos); restrictions for the free tier not confirmed",
+     "pt": "ver [termos](https://cnpja.com/subscription/tos); restrições do plano gratuito não confirmadas"
+    },
+    "python_check": "data = r.json() if r.status_code == 200 else None   # 404 = not found, 429 = wait 60 s",
+    "js_check": "const data = r.status === 200 ? await r.json() : null;",
+    "connect_notes": {
+     "en": "Nested English-keyed JSON (`company.name`, `address.municipality`, `mainActivity.id`). Company size comes as an acronym (`ME`, `EPP`, `DEMAIS`).",
+     "pt": "JSON aninhado com chaves em inglês (`company.name`, `address.municipality`, `mainActivity.id`). Porte vem como sigla (`ME`, `EPP`, `DEMAIS`)."
+    },
+    "rate_limit_response": {
+     "en": "HTTP 429; recently founded companies: HTTP 402 `recently founded offices only available in commercial api`",
+     "pt": "HTTP 429; empresas recém-abertas: HTTP 402 `recently founded offices only available in commercial api`"
+    },
+    "issues": {
+     "en": [
+      "Effective throughput 4.5 CNPJs per minute; 11% of requests rate-limited at the documented pace.",
+      "Phones missing in 5% of the records where other sources have them.",
+      "Recently founded companies: HTTP 402 `recently founded offices only available in commercial api` for 13 of the 36 companies opened in 2026-11-01..14 that it was asked about."
+     ],
+     "pt": [
+      "Vazão efetiva de 4,5 CNPJs por minuto; 11% das requisições limitadas no ritmo documentado.",
+      "Telefones ausentes em 5% dos registros em que outras fontes os têm.",
+      "Empresas recém-abertas: HTTP 402 `recently founded offices only available in commercial api` para 13 das 36 empresas abertas em 01–14/11/2026 consultadas."
+     ]
+    },
+    "verdict": {
+     "en": "Most complete record per company (99.8% relative completeness, every field including IBGE code and e-mail). Limited to ~5 CNPJs per minute, and part of the recently founded companies is withheld on the free tier (HTTP 402). Best for enriching individual, established records.",
+     "pt": "Cadastro mais completo por empresa (99,8% de completude relativa, todos os campos, inclusive IBGE e e-mail). Limitado a ~5 CNPJs por minuto, e parte das empresas recém-abertas fica retida no plano gratuito (HTTP 402). Melhor para enriquecer registros individuais de empresas já estabelecidas."
+    }
+   }
+  },
+  "S05": {
+   "wave1": {
+    "runs": [
+     "R20261116T235549-S05-w1a",
+     "R20261117T004815-S05-w1b"
+    ],
+    "cnpjs_closed": 258,
+    "coverage": 0.9912,
+    "coverage_ci95": [
+     0.9683,
+     0.9976
+    ],
+    "outcomes": {
+     "found": 224,
+     "not_found": 2,
+     "server_error": 25,
+     "timeout": 7
+    },
+    "error_rate": 0.124,
+    "QI": 0.887,
+    "completeness_mean": 0.9671,
+    "validity_mean": 0.9978,
+    "agreement_mean": 0.9894,
+    "fields": {
+     "legal_name": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "trade_name": {
+      "fill": 0.683,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "establishment_type": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "registration_status": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "registration_status_date": {
+      "fill": 0.9732,
+      "relative_completeness": 0.9732,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "opening_date": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "legal_nature_code": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "legal_nature": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 0.9866
+     },
+     "company_size": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "share_capital": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 0.9643
+     },
+     "main_cnae": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "secondary_cnaes": {
+      "fill": 0.7143,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "address_street": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "address_number": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "address_complement": {
+      "fill": 0.4732,
+      "relative_completeness": 0.9907,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "address_district": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "address_city": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "address_state": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "address_zip": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "address_city_ibge": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "phones": {
+      "fill": 0.9107,
+      "relative_completeness": 1.0,
+      "validity": 0.9461,
+      "agreement": 0.9951
+     },
+     "email": {
+      "fill": 0.7857,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "partners": {
+      "fill": 0.8214,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 0.788
+     },
+     "simples_optant": {
+      "fill": 0.6071,
+      "relative_completeness": 0.6071,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "mei_optant": {
+      "fill": 0.6071,
+      "relative_completeness": 0.6071,
+      "validity": 1.0,
+      "agreement": 1.0
+     }
+    },
+    "consistency": {
+     "Q2_mojibake_rate": 0.0,
+     "Q3_establishment_consistency": 1.0,
+     "Q4_ibge_state_consistency": 1.0
+    },
+    "reference_agreement": {
+     "legal_name": 0.6964,
+     "address_state": 0.963,
+     "address_city": 0.9286,
+     "address_zip": 0.641,
+     "address_city_ibge": 0.9697
+    },
+    "throughput": {
+     "T4_effective_rpm": 1.38,
+     "T5_latency_ms": {
+      "mean": 3400.6,
+      "p50": 373.5,
+      "p95": 15966.96,
+      "p99": 18209.131
+     },
+     "T6_rate_limited_share": 0.1097,
+     "T7_retries_per_cnpj": 0.4845,
+     "configured_rpm": 3.0
+    }
+   },
+   "freshness": {
+    "newest_opening_date": "2026-10-27",
+    "recall_by_half_month": {
+     "2026-04-a": {
+      "found": 0,
+      "closed": 0,
+      "recall": null,
+      "ci95": null
+     },
+     "2026-04-b": {
+      "found": 0,
+      "closed": 0,
+      "recall": null,
+      "ci95": null
+     },
+     "2026-05-a": {
+      "found": 0,
+      "closed": 0,
+      "recall": null,
+      "ci95": null
+     },
+     "2026-05-b": {
+      "found": 0,
+      "closed": 0,
+      "recall": null,
+      "ci95": null
+     },
+     "2026-06-a": {
+      "found": 0,
+      "closed": 0,
+      "recall": null,
+      "ci95": null
+     },
+     "2026-06-b": {
+      "found": 0,
+      "closed": 0,
+      "recall": null,
+      "ci95": null
+     },
+     "2026-07-a": {
+      "found": 0,
+      "closed": 0,
+      "recall": null,
+      "ci95": null
+     },
+     "2026-07-b": {
+      "found": 0,
+      "closed": 0,
+      "recall": null,
+      "ci95": null
+     },
+     "2026-08-a": {
+      "found": 0,
+      "closed": 0,
+      "recall": null,
+      "ci95": null
+     },
+     "2026-08-b": {
+      "found": 0,
+      "closed": 1,
+      "recall": 0.0,
+      "ci95": [
+       0.0,
+       0.7935
+      ]
+     },
+     "2026-09-a": {
+      "found": 0,
+      "closed": 0,
+      "recall": null,
+      "ci95": null
+     },
+     "2026-09-b": {
+      "found": 0,
+      "closed": 0,
+      "recall": null,
+      "ci95": null
+     },
+     "2026-10-a": {
+      "found": 0,
+      "closed": 0,
+      "recall": null,
+      "ci95": null
+     },
+     "2026-10-b": {
+      "found": 1,
+      "closed": 2,
+      "recall": 0.5,
+      "ci95": [
+       0.0945,
+       0.9055
+      ]
+     },
+     "2026-11-a": {
+      "found": 1,
+      "closed": 1,
+      "recall": 1.0,
+      "ci95": [
+       0.2065,
+       1.0
+      ]
+     },
+     "older": {
+      "found": 0,
+      "closed": 0,
+      "recall": null,
+      "ci95": null
+     }
+    },
+    "declared_record_age_days": {
+     "key": "atualizado_em",
+     "n": 226,
+     "p10_days": 38.0,
+     "p50_days": 38.0,
+     "p90_days": 38.1,
+     "max_days": 38.1
+    },
+    "alphanumeric_probe": {
+     "33000167000101": {
+      "http_status": 504,
+      "outcome": "server_error",
+      "message": "      <!DOCTYPE html>\n      <html>\n      <head>\n          <meta name=\"viewport\" content=\"width=device-width, initial-sca"
+     },
+     "33000167000102": {
+      "http_status": 400,
+      "outcome": "invalid_input",
+      "message": "{\"status\":400,\"titulo\":\"Requisição inválida\",\"detalhes\":\"CNPJ inválido\",\"validacao\":[]}"
+     },
+     "12ABC34501DE35": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": "{\"status\":404,\"titulo\":\"Não encontrado\",\"detalhes\":\"Recurso não encontrado\",\"validacao\":[]}"
+     },
+     "DDPLWK0W000199": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": "{\"status\":404,\"titulo\":\"Não encontrado\",\"detalhes\":\"Recurso não encontrado\",\"validacao\":[]}"
+     },
+     "C0XWNWFX000155": {
+      "http_status": null,
+      "outcome": "timeout",
+      "message": ""
+     },
+     "RZMZG2ER000147": {
+      "http_status": 500,
+      "outcome": "server_error",
+      "message": "{\"status\":500,\"titulo\":\"Erro interno do servidor\",\"detalhes\":\"Ocorreu um erro inesperado\",\"validacao\":[]}"
+     },
+     "PT7TDBE0000100": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": "{\"status\":404,\"titulo\":\"Não encontrado\",\"detalhes\":\"Recurso não encontrado\",\"validacao\":[]}"
+     },
+     "0DPVAC8F000110": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": "{\"status\":404,\"titulo\":\"Não encontrado\",\"detalhes\":\"Recurso não encontrado\",\"validacao\":[]}"
+     },
+     "YZFP7A5D000100": {
+      "http_status": 500,
+      "outcome": "server_error",
+      "message": "{\"status\":500,\"titulo\":\"Erro interno do servidor\",\"detalhes\":\"Ocorreu um erro inesperado\",\"validacao\":[]}"
+     },
+     "SDV0Q7BK000108": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": "{\"status\":404,\"titulo\":\"Não encontrado\",\"detalhes\":\"Recurso não encontrado\",\"validacao\":[]}"
+     },
+     "IRFOO7TZ000126": {
+      "http_status": 500,
+      "outcome": "server_error",
+      "message": "{\"status\":500,\"titulo\":\"Erro interno do servidor\",\"detalhes\":\"Ocorreu um erro inesperado\",\"validacao\":[]}"
+     },
+     "7JOPXEVF000186": {
+      "http_status": 500,
+      "outcome": "server_error",
+      "message": "{\"status\":500,\"titulo\":\"Erro interno do servidor\",\"detalhes\":\"Ocorreu um erro inesperado\",\"validacao\":[]}"
+     }
+    }
+   },
+   "catalog": {
+    "source_id": "S05",
+    "slug": "cnpjws_public",
+    "name": "CNPJ.ws Public API",
+    "url_template": "https://publica.cnpj.ws/cnpj/{cnpj}",
+    "access": "free_no_key",
+    "open_source": false,
+    "upstream": {
+     "en": "Receita Federal, SEFAZ/SINTEGRA, Suframa, fetched periodically ([docs](https://docs.cnpj.ws))",
+     "pt": "Receita Federal, SEFAZ/SINTEGRA, Suframa, coletados periodicamente ([docs](https://docs.cnpj.ws))"
+    },
+    "rate_limit_rpm": 3.0,
+    "rate_limit_basis": "observed",
+    "status": "active",
+    "probe_2026_11_16": "200 found; x-ratelimit-limit: 3",
+    "display_name": "CNPJ.ws (public API)",
+    "operator": {
+     "en": "Commercial company (CNPJ.ws), free public tier",
+     "pt": "Empresa comercial (CNPJ.ws), plano público gratuito"
+    },
+    "website": "https://www.cnpj.ws",
+    "docs_url": "https://docs.cnpj.ws/referencia-de-api/api-publica",
+    "repo_url": null,
+    "auth": {
+     "en": "none",
+     "pt": "nenhuma"
+    },
+    "limit_documented": {
+     "en": "3 requests per minute per IP; more than 360 HTTP 429 in an hour blocks the IP for 1 hour ([limits](https://docs.cnpj.ws/referencia-de-api/api-publica/limitacoes))",
+     "pt": "3 requisições por minuto por IP; mais de 360 HTTP 429 em uma hora bloqueia o IP por 1 hora ([limitações](https://docs.cnpj.ws/referencia-de-api/api-publica/limitacoes))"
+    },
+    "limit_observed": {
+     "en": "`x-ratelimit-limit: 3`, `x-ratelimit-reset`; 11% of requests answered 429 at 3 rpm; from ~02:00 UTC on 2026-11-17 mostly HTTP 500/504 and timeouts",
+     "pt": "`x-ratelimit-limit: 3`, `x-ratelimit-reset`; 11% das requisições receberam 429 a 3 req/min; a partir de ~02:00 UTC de 17/11/2026, majoritariamente HTTP 500/504 e timeouts"
+    },
+    "cadence": {
+     "en": "maximum lag 45 days ([terms](https://www.cnpj.ws/pt-BR/termos-de-uso)); per record (`atualizado_em`)",
+     "pt": "defasagem máxima de 45 dias ([termos](https://www.cnpj.ws/pt-BR/termos-de-uso)); por registro (`atualizado_em`)"
+    },
+    "terms": {
+     "en": "personal benefit only, no commercial use ([terms](https://www.cnpj.ws/pt-BR/termos-de-uso))",
+     "pt": "apenas para benefício próprio, sem comercialização ([termos](https://www.cnpj.ws/pt-BR/termos-de-uso))"
+    },
+    "python_check": "data = r.json() if r.status_code == 200 else None   # 429: wait for x-ratelimit-reset seconds",
+    "js_check": "const data = r.status === 200 ? await r.json() : null;",
+    "connect_notes": {
+     "en": "Establishment data is nested under `estabelecimento`; state registrations (`inscricoes_estaduais`) are included, which no other free source returns.",
+     "pt": "Dados do estabelecimento ficam em `estabelecimento`; inclui inscrições estaduais (`inscricoes_estaduais`), que nenhuma outra fonte gratuita retorna."
+    },
+    "rate_limit_response": {
+     "en": "HTTP 429 with `x-ratelimit-limit`, `x-ratelimit-remaining`, `x-ratelimit-reset`",
+     "pt": "HTTP 429 com `x-ratelimit-limit`, `x-ratelimit-remaining`, `x-ratelimit-reset`"
+    },
+    "issues": {
+     "en": [
+      "Degraded during the test: 12.4% of CNPJs ended in HTTP 500/504 or timeout; latency p95 16 s.",
+      "Partner list agrees with the other sources in only 79% of records.",
+      "Some records omit fields at the company's request."
+     ],
+     "pt": [
+      "Degradou durante o teste: 12,4% dos CNPJs terminaram em HTTP 500/504 ou timeout; latência p95 de 16 s.",
+      "Quadro societário concorda com as outras fontes em apenas 79% dos registros.",
+      "Alguns registros omitem campos a pedido da empresa."
+     ]
+    },
+    "verdict": {
+     "en": "Rich record (includes state registrations) but slowest effective rate (1.4 CNPJs/min), unstable during the test and no commercial use allowed.",
+     "pt": "Registro rico (inclui inscrições estaduais), mas a menor vazão efetiva (1,4 CNPJ/min), instável durante o teste e sem uso comercial."
+    }
+   }
+  },
+  "S06": {
+   "wave1": {
+    "runs": [
+     "R20261116T235549-S06-w1a",
+     "R20261117T000550-S06-w1b"
+    ],
+    "cnpjs_closed": 300,
+    "coverage": 0.99,
+    "coverage_ci95": [
+     0.971,
+     0.9966
+    ],
+    "outcomes": {
+     "found": 297,
+     "not_found": 3
+    },
+    "error_rate": 0.0,
+    "QI": 0.9772,
+    "completeness_mean": 0.924,
+    "validity_mean": 0.9977,
+    "agreement_mean": 0.9956,
+    "fields": {
+     "legal_name": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 0.9798
+     },
+     "trade_name": {
+      "fill": 0.6633,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "establishment_type": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "registration_status": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "registration_status_date": {
+      "fill": 0.9764,
+      "relative_completeness": 0.9764,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "opening_date": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "legal_nature_code": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "legal_nature": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "company_size": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "share_capital": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 0.9596
+     },
+     "main_cnae": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "secondary_cnaes": {
+      "fill": 0.7138,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "address_street": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "address_number": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "address_complement": {
+      "fill": 0.4848,
+      "relative_completeness": 0.9931,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "address_district": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "address_city": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "address_state": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "address_zip": {
+      "fill": 0.9966,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "address_city_ibge": {
+      "fill": 0.0,
+      "relative_completeness": 0.0,
+      "validity": null,
+      "agreement": null
+     },
+     "phones": {
+      "fill": 0.9259,
+      "relative_completeness": 1.0,
+      "validity": 0.9455,
+      "agreement": 0.9927
+     },
+     "email": {
+      "fill": 0.7946,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "partners": {
+      "fill": 0.8114,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 0.9627
+     },
+     "simples_optant": {
+      "fill": 0.5657,
+      "relative_completeness": 0.5657,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "mei_optant": {
+      "fill": 0.5657,
+      "relative_completeness": 0.5657,
+      "validity": 1.0,
+      "agreement": 1.0
+     }
+    },
+    "consistency": {
+     "Q2_mojibake_rate": 0.0,
+     "Q3_establishment_consistency": 1.0,
+     "Q4_ibge_state_consistency": null
+    },
+    "reference_agreement": {
+     "legal_name": 0.6902,
+     "address_state": 0.974,
+     "address_city": 0.9241,
+     "address_zip": 0.6792,
+     "address_city_ibge": null
+    },
+    "throughput": {
+     "T4_effective_rpm": 121.66,
+     "T5_latency_ms": {
+      "mean": 472.1,
+      "p50": 496.0,
+      "p95": 673.13,
+      "p99": 909.7600000000001
+     },
+     "T6_rate_limited_share": 0.0,
+     "T7_retries_per_cnpj": 0.0,
+     "configured_rpm": 300.0
+    }
+   },
+   "wave2": {
+    "steps": {
+     "w2a-x1": {
+      "run_id": "R20261117T030323-S06-w2a-x1",
+      "S1_attempted_rpm": 307.79,
+      "S2_found_rpm": 307.79,
+      "S3_first_429_at_attempt": null,
+      "S4_rate_limited_share": 0.0,
+      "S5_429_with_retry_after": null,
+      "S6_429_header_names": {},
+      "S7_other_errors": {},
+      "S8_latency_p50_found_ms": 36.1,
+      "mode": "ramp",
+      "label": "w2a-x1",
+      "status": "finished",
+      "paced_rpm": 300.0,
+      "concurrency": 1
+     },
+     "w2a-x2": {
+      "run_id": "R20261117T030330-S06-w2a-x2",
+      "S1_attempted_rpm": 511.37,
+      "S2_found_rpm": 511.37,
+      "S3_first_429_at_attempt": null,
+      "S4_rate_limited_share": 0.0,
+      "S5_429_with_retry_after": null,
+      "S6_429_header_names": {},
+      "S7_other_errors": {},
+      "S8_latency_p50_found_ms": 39.3,
+      "mode": "ramp",
+      "label": "w2a-x2",
+      "status": "finished",
+      "paced_rpm": 600.0,
+      "concurrency": 1
+     },
+     "w2a-x4": {
+      "run_id": "R20261117T030335-S06-w2a-x4",
+      "S1_attempted_rpm": 1091.03,
+      "S2_found_rpm": 1091.03,
+      "S3_first_429_at_attempt": null,
+      "S4_rate_limited_share": 0.0,
+      "S5_429_with_retry_after": null,
+      "S6_429_header_names": {},
+      "S7_other_errors": {},
+      "S8_latency_p50_found_ms": 34.6,
+      "mode": "ramp",
+      "label": "w2a-x4",
+      "status": "finished",
+      "paced_rpm": 1200.0,
+      "concurrency": 1
+     },
+     "w2b-r1": {
+      "run_id": "R20261117T030337-S06-w2b-r1",
+      "S1_attempted_rpm": 5209.24,
+      "S2_found_rpm": 5209.24,
+      "S3_first_429_at_attempt": null,
+      "S4_rate_limited_share": 0.0,
+      "S5_429_with_retry_after": null,
+      "S6_429_header_names": {},
+      "S7_other_errors": {},
+      "S8_latency_p50_found_ms": 36.9,
+      "mode": "burst",
+      "label": "w2b-r1",
+      "status": "finished",
+      "paced_rpm": null,
+      "concurrency": 4
+     },
+     "w2b-r2": {
+      "run_id": "R20261117T030339-S06-w2b-r2",
+      "S1_attempted_rpm": 5077.43,
+      "S2_found_rpm": 5077.43,
+      "S3_first_429_at_attempt": null,
+      "S4_rate_limited_share": 0.0,
+      "S5_429_with_retry_after": null,
+      "S6_429_header_names": {},
+      "S7_other_errors": {},
+      "S8_latency_p50_found_ms": 37.95,
+      "mode": "burst",
+      "label": "w2b-r2",
+      "status": "finished",
+      "paced_rpm": null,
+      "concurrency": 4
+     }
+    },
+    "repeat_consistency": {
+     "pair": [
+      "R20261117T030337-S06-w2b-r1",
+      "R20261117T030339-S06-w2b-r2"
+     ],
+     "S9_found_in_both": 100,
+     "S10_identical_record_share": 1.0,
+     "S11_latency_p50_ratio": 1.028
+    }
+   },
+   "freshness": {
+    "newest_opening_date": "2026-10-08",
+    "recall_by_half_month": {
+     "2026-04-a": {
+      "found": 9,
+      "closed": 9,
+      "recall": 1.0,
+      "ci95": [
+       0.7008,
+       1.0
+      ]
+     },
+     "2026-04-b": {
+      "found": 19,
+      "closed": 19,
+      "recall": 1.0,
+      "ci95": [
+       0.8318,
+       1.0
+      ]
+     },
+     "2026-05-a": {
+      "found": 16,
+      "closed": 16,
+      "recall": 1.0,
+      "ci95": [
+       0.8064,
+       1.0
+      ]
+     },
+     "2026-05-b": {
+      "found": 15,
+      "closed": 15,
+      "recall": 1.0,
+      "ci95": [
+       0.7961,
+       1.0
+      ]
+     },
+     "2026-06-a": {
+      "found": 15,
+      "closed": 15,
+      "recall": 1.0,
+      "ci95": [
+       0.7961,
+       1.0
+      ]
+     },
+     "2026-06-b": {
+      "found": 13,
+      "closed": 13,
+      "recall": 1.0,
+      "ci95": [
+       0.7719,
+       1.0
+      ]
+     },
+     "2026-07-a": {
+      "found": 17,
+      "closed": 17,
+      "recall": 1.0,
+      "ci95": [
+       0.8157,
+       1.0
+      ]
+     },
+     "2026-07-b": {
+      "found": 16,
+      "closed": 16,
+      "recall": 1.0,
+      "ci95": [
+       0.8064,
+       1.0
+      ]
+     },
+     "2026-08-a": {
+      "found": 21,
+      "closed": 21,
+      "recall": 1.0,
+      "ci95": [
+       0.8454,
+       1.0
+      ]
+     },
+     "2026-08-b": {
+      "found": 16,
+      "closed": 17,
+      "recall": 0.9412,
+      "ci95": [
+       0.7302,
+       0.9895
+      ]
+     },
+     "2026-09-a": {
+      "found": 15,
+      "closed": 16,
+      "recall": 0.9375,
+      "ci95": [
+       0.7167,
+       0.9889
+      ]
+     },
+     "2026-09-b": {
+      "found": 16,
+      "closed": 16,
+      "recall": 1.0,
+      "ci95": [
+       0.8064,
+       1.0
+      ]
+     },
+     "2026-10-a": {
+      "found": 9,
+      "closed": 13,
+      "recall": 0.6923,
+      "ci95": [
+       0.4237,
+       0.8732
+      ]
+     },
+     "2026-10-b": {
+      "found": 0,
+      "closed": 22,
+      "recall": 0.0,
+      "ci95": [
+       0.0,
+       0.1487
+      ]
+     },
+     "2026-11-a": {
+      "found": 0,
+      "closed": 45,
+      "recall": 0.0,
+      "ci95": [
+       0.0,
+       0.0787
+      ]
+     },
+     "older": {
+      "found": 28,
+      "closed": 28,
+      "recall": 1.0,
+      "ci95": [
+       0.8794,
+       1.0
+      ]
+     }
+    },
+    "declared_record_age_days": {
+     "key": "updated_at",
+     "n": 525,
+     "p10_days": 15.1,
+     "p50_days": 15.1,
+     "p90_days": 15.2,
+     "max_days": 15.2
+    },
+    "alphanumeric_probe": {
+     "33000167000101": {
+      "http_status": 200,
+      "outcome": "found",
+      "message": ""
+     },
+     "33000167000102": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": "{\"error\":\"not found\"}"
+     },
+     "12ABC34501DE35": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": "{\"error\":\"not found\"}"
+     },
+     "DDPLWK0W000199": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": "{\"error\":\"not found\"}"
+     },
+     "C0XWNWFX000155": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": "{\"error\":\"not found\"}"
+     },
+     "RZMZG2ER000147": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": "{\"error\":\"not found\"}"
+     },
+     "PT7TDBE0000100": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": "{\"error\":\"not found\"}"
+     },
+     "0DPVAC8F000110": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": "{\"error\":\"not found\"}"
+     },
+     "YZFP7A5D000100": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": "{\"error\":\"not found\"}"
+     },
+     "SDV0Q7BK000108": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": "{\"error\":\"not found\"}"
+     },
+     "IRFOO7TZ000126": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": "{\"error\":\"not found\"}"
+     },
+     "7JOPXEVF000186": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": "{\"error\":\"not found\"}"
+     }
+    }
+   },
+   "catalog": {
+    "source_id": "S06",
+    "slug": "opencnpj_org",
+    "name": "OpenCNPJ (opencnpj.org)",
+    "url_template": "https://api.opencnpj.org/{cnpj}",
+    "access": "free_no_key",
+    "open_source": true,
+    "upstream": {
+     "en": "Receita Federal monthly release → ETL → static shards on Cloudflare R2; full dataset also downloadable; `/info` reports `source_snapshot_month: 2026-10`",
+     "pt": "base mensal da Receita Federal → ETL → fragmentos estáticos no Cloudflare R2; base completa também disponível para download; `/info` informa `source_snapshot_month: 2026-10`"
+    },
+    "rate_limit_rpm": 300.0,
+    "rate_limit_basis": "documented",
+    "status": "active",
+    "probe_2026_11_16": "200 found",
+    "display_name": "OpenCNPJ.org",
+    "operator": {
+     "en": "Non-profit open-source project (MIT)",
+     "pt": "Projeto de código aberto sem fins lucrativos (MIT)"
+    },
+    "website": "https://opencnpj.org",
+    "docs_url": "https://opencnpj.org",
+    "repo_url": "https://github.com/Hitmasu/OpenCNPJ",
+    "auth": {
+     "en": "none",
+     "pt": "nenhuma"
+    },
+    "limit_documented": {
+     "en": "no fixed quota; bursts above 100 requests/second accepted; sustained abuse → 429 ([opencnpj.org](https://opencnpj.org))",
+     "pt": "sem cota fixa; picos acima de 100 requisições/segundo aceitos; abuso contínuo → 429 ([opencnpj.org](https://opencnpj.org))"
+    },
+    "limit_observed": {
+     "en": "no 429 up to ~5,200 rpm (4 concurrent requests)",
+     "pt": "nenhum 429 até ~5.200 req/min (4 simultâneas)"
+    },
+    "cadence": {
+     "en": "monthly; the 2026-10 release (published 2026-10-13) was loaded on 2026-11-01",
+     "pt": "mensal; a base de 2026-10 (publicada em 13/10/2026) foi carregada em 01/11/2026"
+    },
+    "terms": {
+     "en": "code MIT; free use including commercial (site FAQ)",
+     "pt": "código MIT; uso gratuito, inclusive comercial (FAQ do site)"
+    },
+    "python_check": "data = r.json() if r.status_code == 200 else None   # 404 = not found OR invalid CNPJ (no validation)",
+    "js_check": "const data = r.status === 200 ? await r.json() : null;",
+    "connect_notes": {
+     "en": "Validate the check digits yourself: the API answers 404 for an invalid CNPJ. `GET https://api.opencnpj.org/info` returns the release month and record count.",
+     "pt": "Valide os dígitos verificadores antes: a API responde 404 para CNPJ inválido. `GET https://api.opencnpj.org/info` informa o mês da base e o número de registros."
+    },
+    "issues": {
+     "en": [
+      "About one month behind the official release: newest company returned opened on 2026-10-08; none of the companies opened after 2026-10-15 were returned.",
+      "No IBGE municipality code; Simples/MEI flags filled in 57% of records.",
+      "No input validation (wrong check digit → 404)."
+     ],
+     "pt": [
+      "Cerca de um mês atrás da base oficial: a empresa mais recente retornada abriu em 08/10/2026; nenhuma das empresas abertas depois de 15/10/2026 foi retornada.",
+      "Não retorna código IBGE; Simples/MEI preenchidos em 57% dos registros.",
+      "Não valida a entrada (dígito errado → 404)."
+     ]
+    },
+    "verdict": {
+     "en": "Best for volume: 99% coverage, no key, no 429 even at thousands of requests per minute, commercial use allowed, full dataset downloadable. Weak point: data about one month older than the official release.",
+     "pt": "Melhor para volume: 99% de cobertura, sem chave, nenhum 429 mesmo a milhares de requisições por minuto, uso comercial permitido, base completa para download. Ponto fraco: dados cerca de um mês mais antigos que a base oficial."
+    }
+   }
+  },
+  "S07": {
+   "wave1": {
+    "runs": [
+     "R20261116T235550-S07-w1a",
+     "R20261117T000550-S07-w1b"
+    ],
+    "cnpjs_closed": 300,
+    "coverage": 0.99,
+    "coverage_ci95": [
+     0.971,
+     0.9966
+    ],
+    "outcomes": {
+     "found": 297,
+     "not_found": 3
+    },
+    "error_rate": 0.0,
+    "QI": 0.974,
+    "completeness_mean": 0.9183,
+    "validity_mean": 0.9987,
+    "agreement_mean": 0.9867,
+    "fields": {
+     "legal_name": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 0.9899
+     },
+     "trade_name": {
+      "fill": 0.6566,
+      "relative_completeness": 0.9898,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "establishment_type": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "registration_status": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 0.9966
+     },
+     "registration_status_date": {
+      "fill": 0.9764,
+      "relative_completeness": 0.9764,
+      "validity": 1.0,
+      "agreement": 0.9966
+     },
+     "opening_date": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "legal_nature_code": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 0.9933
+     },
+     "legal_nature": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 0.9933
+     },
+     "company_size": {
+      "fill": 0.0,
+      "relative_completeness": 0.0,
+      "validity": null,
+      "agreement": null
+     },
+     "share_capital": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 0.9562
+     },
+     "main_cnae": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "secondary_cnaes": {
+      "fill": 0.7138,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 0.9953
+     },
+     "address_street": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 0.9966
+     },
+     "address_number": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 0.9966
+     },
+     "address_complement": {
+      "fill": 0.4882,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "address_district": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 0.9966
+     },
+     "address_city": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "address_state": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "address_zip": {
+      "fill": 0.9966,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 0.9966
+     },
+     "address_city_ibge": {
+      "fill": 0.0,
+      "relative_completeness": 0.0,
+      "validity": null,
+      "agreement": null
+     },
+     "phones": {
+      "fill": 0.9259,
+      "relative_completeness": 1.0,
+      "validity": 0.9709,
+      "agreement": 0.84
+     },
+     "email": {
+      "fill": 0.7946,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "partners": {
+      "fill": 0.8047,
+      "relative_completeness": 0.9917,
+      "validity": 1.0,
+      "agreement": 0.9456
+     },
+     "simples_optant": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     },
+     "mei_optant": {
+      "fill": 1.0,
+      "relative_completeness": 1.0,
+      "validity": 1.0,
+      "agreement": 1.0
+     }
+    },
+    "consistency": {
+     "Q2_mojibake_rate": 0.0,
+     "Q3_establishment_consistency": 1.0,
+     "Q4_ibge_state_consistency": null
+    },
+    "reference_agreement": {
+     "legal_name": 0.6936,
+     "address_state": 0.974,
+     "address_city": 0.9241,
+     "address_zip": 0.6792,
+     "address_city_ibge": null
+    },
+    "throughput": {
+     "T4_effective_rpm": 120.69,
+     "T5_latency_ms": {
+      "mean": 60.0,
+      "p50": 52.7,
+      "p95": 94.085,
+      "p99": 203.605
+     },
+     "T6_rate_limited_share": 0.0,
+     "T7_retries_per_cnpj": 0.0,
+     "configured_rpm": 120.0
+    }
+   },
+   "wave2": {
+    "steps": {
+     "w2a-x1": {
+      "run_id": "R20261117T030323-S07-w2a-x1",
+      "S1_attempted_rpm": 123.37,
+      "S2_found_rpm": 123.37,
+      "S3_first_429_at_attempt": null,
+      "S4_rate_limited_share": 0.0,
+      "S5_429_with_retry_after": null,
+      "S6_429_header_names": {},
+      "S7_other_errors": {},
+      "S8_latency_p50_found_ms": 44.9,
+      "mode": "ramp",
+      "label": "w2a-x1",
+      "status": "finished",
+      "paced_rpm": 120.0,
+      "concurrency": 1
+     },
+     "w2a-x2": {
+      "run_id": "R20261117T030339-S07-w2a-x2",
+      "S1_attempted_rpm": 245.98,
+      "S2_found_rpm": 245.98,
+      "S3_first_429_at_attempt": null,
+      "S4_rate_limited_share": 0.0,
+      "S5_429_with_retry_after": null,
+      "S6_429_header_names": {},
+      "S7_other_errors": {},
+      "S8_latency_p50_found_ms": 49.7,
+      "mode": "ramp",
+      "label": "w2a-x2",
+      "status": "finished",
+      "paced_rpm": 240.0,
+      "concurrency": 1
+     },
+     "w2a-x4": {
+      "run_id": "R20261117T030348-S07-w2a-x4",
+      "S1_attempted_rpm": 487.06,
+      "S2_found_rpm": 487.06,
+      "S3_first_429_at_attempt": null,
+      "S4_rate_limited_share": 0.0,
+      "S5_429_with_retry_after": null,
+      "S6_429_header_names": {},
+      "S7_other_errors": {},
+      "S8_latency_p50_found_ms": 48.0,
+      "mode": "ramp",
+      "label": "w2a-x4",
+      "status": "finished",
+      "paced_rpm": 480.0,
+      "concurrency": 1
+     },
+     "w2b-r1": {
+      "run_id": "R20261117T030353-S07-w2b-r1",
+      "S1_attempted_rpm": 4187.02,
+      "S2_found_rpm": 4187.02,
+      "S3_first_429_at_attempt": null,
+      "S4_rate_limited_share": 0.0,
+      "S5_429_with_retry_after": null,
+      "S6_429_header_names": {},
+      "S7_other_errors": {},
+      "S8_latency_p50_found_ms": 46.25,
+      "mode": "burst",
+      "label": "w2b-r1",
+      "status": "finished",
+      "paced_rpm": null,
+      "concurrency": 4
+     },
+     "w2b-r2": {
+      "run_id": "R20261117T030355-S07-w2b-r2",
+      "S1_attempted_rpm": 4718.09,
+      "S2_found_rpm": 4718.09,
+      "S3_first_429_at_attempt": null,
+      "S4_rate_limited_share": 0.0,
+      "S5_429_with_retry_after": null,
+      "S6_429_header_names": {},
+      "S7_other_errors": {},
+      "S8_latency_p50_found_ms": 42.2,
+      "mode": "burst",
+      "label": "w2b-r2",
+      "status": "finished",
+      "paced_rpm": null,
+      "concurrency": 4
+     }
+    },
+    "repeat_consistency": {
+     "pair": [
+      "R20261117T030353-S07-w2b-r1",
+      "R20261117T030355-S07-w2b-r2"
+     ],
+     "S9_found_in_both": 100,
+     "S10_identical_record_share": 1.0,
+     "S11_latency_p50_ratio": 0.912
+    }
+   },
+   "freshness": {
+    "newest_opening_date": "2026-09-11",
+    "recall_by_half_month": {
+     "2026-04-a": {
+      "found": 9,
+      "closed": 9,
+      "recall": 1.0,
+      "ci95": [
+       0.7008,
+       1.0
+      ]
+     },
+     "2026-04-b": {
+      "found": 19,
+      "closed": 19,
+      "recall": 1.0,
+      "ci95": [
+       0.8318,
+       1.0
+      ]
+     },
+     "2026-05-a": {
+      "found": 16,
+      "closed": 16,
+      "recall": 1.0,
+      "ci95": [
+       0.8064,
+       1.0
+      ]
+     },
+     "2026-05-b": {
+      "found": 15,
+      "closed": 15,
+      "recall": 1.0,
+      "ci95": [
+       0.7961,
+       1.0
+      ]
+     },
+     "2026-06-a": {
+      "found": 15,
+      "closed": 15,
+      "recall": 1.0,
+      "ci95": [
+       0.7961,
+       1.0
+      ]
+     },
+     "2026-06-b": {
+      "found": 13,
+      "closed": 13,
+      "recall": 1.0,
+      "ci95": [
+       0.7719,
+       1.0
+      ]
+     },
+     "2026-07-a": {
+      "found": 17,
+      "closed": 17,
+      "recall": 1.0,
+      "ci95": [
+       0.8157,
+       1.0
+      ]
+     },
+     "2026-07-b": {
+      "found": 16,
+      "closed": 16,
+      "recall": 1.0,
+      "ci95": [
+       0.8064,
+       1.0
+      ]
+     },
+     "2026-08-a": {
+      "found": 21,
+      "closed": 21,
+      "recall": 1.0,
+      "ci95": [
+       0.8454,
+       1.0
+      ]
+     },
+     "2026-08-b": {
+      "found": 16,
+      "closed": 17,
+      "recall": 0.9412,
+      "ci95": [
+       0.7302,
+       0.9895
+      ]
+     },
+     "2026-09-a": {
+      "found": 8,
+      "closed": 16,
+      "recall": 0.5,
+      "ci95": [
+       0.28,
+       0.72
+      ]
+     },
+     "2026-09-b": {
+      "found": 0,
+      "closed": 16,
+      "recall": 0.0,
+      "ci95": [
+       0.0,
+       0.1936
+      ]
+     },
+     "2026-10-a": {
+      "found": 0,
+      "closed": 13,
+      "recall": 0.0,
+      "ci95": [
+       0.0,
+       0.2281
+      ]
+     },
+     "2026-10-b": {
+      "found": 0,
+      "closed": 22,
+      "recall": 0.0,
+      "ci95": [
+       0.0,
+       0.1487
+      ]
+     },
+     "2026-11-a": {
+      "found": 0,
+      "closed": 45,
+      "recall": 0.0,
+      "ci95": [
+       0.0,
+       0.0787
+      ]
+     },
+     "older": {
+      "found": 28,
+      "closed": 28,
+      "recall": 1.0,
+      "ci95": [
+       0.8794,
+       1.0
+      ]
+     }
+    },
+    "declared_record_age_days": null,
+    "alphanumeric_probe": {
+     "33000167000101": {
+      "http_status": 200,
+      "outcome": "found",
+      "message": ""
+     },
+     "33000167000102": {
+      "http_status": 400,
+      "outcome": "invalid_input",
+      "message": "{\"success\":false,\"message\":\"CNPJ inválido.\",\"data\":null}"
+     },
+     "12ABC34501DE35": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": ""
+     },
+     "DDPLWK0W000199": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": ""
+     },
+     "C0XWNWFX000155": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": ""
+     },
+     "RZMZG2ER000147": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": ""
+     },
+     "PT7TDBE0000100": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": ""
+     },
+     "0DPVAC8F000110": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": ""
+     },
+     "YZFP7A5D000100": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": ""
+     },
+     "SDV0Q7BK000108": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": ""
+     },
+     "IRFOO7TZ000126": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": ""
+     },
+     "7JOPXEVF000186": {
+      "http_status": 404,
+      "outcome": "not_found",
+      "message": ""
+     }
+    }
+   },
+   "catalog": {
+    "source_id": "S07",
+    "slug": "opencnpj_com",
+    "name": "OpenCNPJ (opencnpj.com, Kitana API)",
+    "url_template": "https://kitana.opencnpj.com/cnpj/{cnpj}",
+    "access": "free_no_key",
+    "open_source": false,
+    "upstream": {
+     "en": "'official Receita Federal sources'; pipeline not documented",
+     "pt": "'fontes oficiais da Receita Federal'; processo não documentado"
+    },
+    "rate_limit_rpm": 120.0,
+    "rate_limit_basis": "observed",
+    "status": "active",
+    "probe_2026_11_16": "200 found; X-Ratelimit-Limit: 300",
+    "display_name": "OpenCNPJ.com (Kitana API)",
+    "operator": {
+     "en": "OpenCaramelo — a different project from OpenCNPJ.org despite the name",
+     "pt": "OpenCaramelo — projeto diferente do OpenCNPJ.org, apesar do nome"
+    },
+    "website": "https://opencnpj.com",
+    "docs_url": "https://opencnpj.com",
+    "repo_url": "https://github.com/opencaramelo/opencnpj",
+    "auth": {
+     "en": "none",
+     "pt": "nenhuma"
+    },
+    "limit_documented": {
+     "en": "300 requests per minute per IP (response headers `X-Ratelimit-Limit: 300`)",
+     "pt": "300 requisições por minuto por IP (cabeçalhos `X-Ratelimit-Limit: 300`)"
+    },
+    "limit_observed": {
+     "en": "no 429 up to ~4,700 rpm (4 concurrent requests)",
+     "pt": "nenhum 429 até ~4.700 req/min (4 simultâneas)"
+    },
+    "cadence": {
+     "en": "not documented; measured: newest company returned opened on 2026-09-11",
+     "pt": "não documentada; medido: empresa mais recente retornada abriu em 11/09/2026"
+    },
+    "terms": {
+     "en": "no license in the repository; 'all rights reserved' on the site",
+     "pt": "repositório sem licença; 'todos os direitos reservados' no site"
+    },
+    "python_check": "body = r.json() if r.status_code == 200 else {}; data = body.get('data') if body.get('success') else None",
+    "js_check": "const body = r.status === 200 ? await r.json() : {}; const data = body.success ? body.data : null;",
+    "connect_notes": {
+     "en": "Envelope `{\"success\": true, \"data\": {...}}`; camelCase keys; dates `dd/mm/yyyy`; legal nature as `\"Text (2062)\"`; the first item of `cnaes` is the main CNAE.",
+     "pt": "Envelope `{\"success\": true, \"data\": {...}}`; chaves em camelCase; datas `dd/mm/aaaa`; natureza jurídica como `\"Texto (2062)\"`; o primeiro item de `cnaes` é o CNAE principal."
+    },
+    "issues": {
+     "en": [
+      "About two months behind: half of the companies opened in 2026-09-01..15 and none opened after 2026-09-15 were returned.",
+      "No company size and no IBGE code; returns only the first phone number."
+     ],
+     "pt": [
+      "Cerca de dois meses de atraso: metade das empresas abertas em 01–15/09/2026 e nenhuma aberta depois de 15/09/2026 foram retornadas.",
+      "Não retorna porte nem código IBGE; retorna só o primeiro telefone."
+     ]
+    },
+    "verdict": {
+     "en": "Fastest (p50 53 ms) with a generous documented limit, but the most outdated data and no license for reuse.",
+     "pt": "A mais rápida (p50 de 53 ms) e com limite documentado generoso, mas com os dados mais defasados e sem licença de reutilização."
+    }
+   }
+  },
+  "S08": {
+   "catalog": {
+    "source_id": "S08",
+    "slug": "minhareceita_selfhosted",
+    "name": "Minha Receita (self-hosted, Docker)",
+    "url_template": "http://127.0.0.1:8000/{cnpj}",
+    "access": "self_hosted",
+    "open_source": true,
+    "upstream": "Receita Federal open data (monthly dump)",
+    "rate_limit_rpm": 6000.0,
+    "rate_limit_basis": "assumed",
+    "status": "planned",
+    "probe_2026_11_16": "not deployed"
+   }
+  },
+  "S09": {
+   "catalog": {
+    "source_id": "S09",
+    "slug": "rfb_open_data",
+    "name": "Receita Federal CNPJ open data (bulk files)",
+    "url_template": null,
+    "access": "bulk_download",
+    "open_source": true,
+    "upstream": "Receita Federal (authoritative)",
+    "rate_limit_rpm": null,
+    "rate_limit_basis": null,
+    "status": "planned",
+    "probe_2026_11_16": "not loaded; reference for ground truth (SPEC-004)"
+   }
+  },
+  "S10": {
+   "catalog": {
+    "source_id": "S10",
+    "slug": "invertexto",
+    "name": "Invertexto API (free token)",
+    "url_template": "https://api.invertexto.com/v1/cnpj/{cnpj}?token={token}",
+    "access": "free_with_key",
+    "open_source": false,
+    "upstream": "Receita Federal",
+    "rate_limit_rpm": 60.0,
+    "rate_limit_basis": "assumed",
+    "status": "pending_credentials",
+    "probe_2026_11_16": "401 Unauthenticated (token required)"
+   }
+  },
+  "S11": {
+   "catalog": {
+    "source_id": "S11",
+    "slug": "casadosdados",
+    "name": "Casa dos Dados API",
+    "url_template": "https://api.casadosdados.com.br/v4/cnpj/{cnpj}",
+    "access": "paid_key",
+    "open_source": false,
+    "upstream": "Receita Federal",
+    "rate_limit_rpm": null,
+    "rate_limit_basis": null,
+    "status": "rejected",
+    "probe_2026_11_16": "401 (paid key required)"
+   }
+  },
+  "S12": {
+   "catalog": {
+    "source_id": "S12",
+    "slug": "serpro_consulta_cnpj",
+    "name": "SERPRO Consulta CNPJ",
+    "url_template": null,
+    "access": "paid_key",
+    "open_source": false,
+    "upstream": "Receita Federal (official)",
+    "rate_limit_rpm": null,
+    "rate_limit_basis": null,
+    "status": "rejected",
+    "probe_2026_11_16": "not probed (paid contract)"
+   }
+  }
+ },
+ "freshness_meta": {
+  "samples": [
+   "SMP-20261117-n220-r20261116-frontier",
+   "SMP-20261117-n60-r20261116-frontier2",
+   "SMP-20261117-n66-r20261116-frontierlite"
+  ],
+  "window_start": "2026-04-01",
+  "computed_on": "2026-11-16",
+  "cnpjs_queried": 343,
+  "cnpjs_existing": 298
+ }
+}

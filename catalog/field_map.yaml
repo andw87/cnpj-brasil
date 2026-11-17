@@ -1,0 +1,169 @@
+# Provider JSON path for every canonical field (docs/methodology.md, section 6), per source.
+# Mirrors the connectors in src/cnpjbench/connectors/; used to generate docs/sources/*.md.
+# Notation: a.b = nested key; a[] = list; a[0] = first item; "x + y" = concatenated by the connector.
+# A missing field means the source has no key for it.
+
+minhareceita: &minhareceita
+  legal_name: razao_social
+  trade_name: nome_fantasia
+  establishment_type: identificador_matriz_filial   # 1 head office, 2 branch
+  registration_status: situacao_cadastral           # code 1..8; descricao_situacao_cadastral has the text
+  registration_status_date: data_situacao_cadastral
+  opening_date: data_inicio_atividade
+  legal_nature_code: codigo_natureza_juridica
+  legal_nature: natureza_juridica
+  company_size: porte
+  share_capital: capital_social
+  main_cnae: cnae_fiscal
+  secondary_cnaes: cnaes_secundarios[].codigo
+  address_street: descricao_tipo_de_logradouro + logradouro
+  address_number: numero
+  address_complement: complemento
+  address_district: bairro
+  address_city: municipio
+  address_state: uf
+  address_zip: cep
+  address_city_ibge: codigo_municipio_ibge
+  phones: ddd_telefone_1, ddd_telefone_2
+  email: email
+  partners: qsa[].nome_socio, qsa[].qualificacao_socio
+  simples_optant: opcao_pelo_simples
+  mei_optant: opcao_pelo_mei
+
+S01: *minhareceita
+S02: *minhareceita
+
+S03:
+  legal_name: nome
+  trade_name: fantasia
+  establishment_type: tipo            # MATRIZ / FILIAL
+  registration_status: situacao
+  registration_status_date: data_situacao   # dd/mm/yyyy
+  opening_date: abertura                    # dd/mm/yyyy
+  legal_nature_code: natureza_juridica      # "206-2 - Sociedade Empresária Limitada"
+  legal_nature: natureza_juridica
+  company_size: porte
+  share_capital: capital_social
+  main_cnae: atividade_principal[0].code
+  secondary_cnaes: atividades_secundarias[].code
+  address_street: logradouro
+  address_number: numero
+  address_complement: complemento
+  address_district: bairro
+  address_city: municipio
+  address_state: uf
+  address_zip: cep
+  phones: telefone                          # free text, may hold two numbers
+  email: email
+  partners: qsa[].nome, qsa[].qual
+  simples_optant: simples.optante
+  mei_optant: simei.optante
+  source_updated_at: ultima_atualizacao
+
+S04:
+  legal_name: company.name
+  trade_name: alias
+  establishment_type: head                  # true / false
+  registration_status: status.id
+  registration_status_date: statusDate
+  opening_date: founded
+  legal_nature_code: company.nature.id
+  legal_nature: company.nature.text
+  company_size: company.size.acronym
+  share_capital: company.equity
+  main_cnae: mainActivity.id
+  secondary_cnaes: sideActivities[].id
+  address_street: address.street
+  address_number: address.number
+  address_complement: address.details
+  address_district: address.district
+  address_city: address.city
+  address_state: address.state
+  address_zip: address.zip
+  address_city_ibge: address.municipality
+  phones: phones[].area + phones[].number
+  email: emails[0].address
+  partners: company.members[].person.name, company.members[].role.text
+  simples_optant: company.simples.optant
+  mei_optant: company.simei.optant
+  source_updated_at: updated
+
+S05:
+  legal_name: razao_social
+  trade_name: estabelecimento.nome_fantasia
+  establishment_type: estabelecimento.tipo
+  registration_status: estabelecimento.situacao_cadastral
+  registration_status_date: estabelecimento.data_situacao_cadastral
+  opening_date: estabelecimento.data_inicio_atividade
+  legal_nature_code: natureza_juridica.id
+  legal_nature: natureza_juridica.descricao
+  company_size: porte.descricao
+  share_capital: capital_social
+  main_cnae: estabelecimento.atividade_principal.id
+  secondary_cnaes: estabelecimento.atividades_secundarias[].id
+  address_street: estabelecimento.tipo_logradouro + estabelecimento.logradouro
+  address_number: estabelecimento.numero
+  address_complement: estabelecimento.complemento
+  address_district: estabelecimento.bairro
+  address_city: estabelecimento.cidade.nome
+  address_state: estabelecimento.estado.sigla
+  address_zip: estabelecimento.cep
+  address_city_ibge: estabelecimento.cidade.ibge_id
+  phones: estabelecimento.ddd1 + telefone1, ddd2 + telefone2
+  email: estabelecimento.email
+  partners: socios[].nome, socios[].qualificacao_socio.descricao
+  simples_optant: simples.simples          # "Sim" / "Não"
+  mei_optant: simples.mei
+  source_updated_at: estabelecimento.atualizado_em
+
+S06:
+  legal_name: razao_social
+  trade_name: nome_fantasia
+  establishment_type: matriz_filial
+  registration_status: situacao_cadastral
+  registration_status_date: data_situacao_cadastral
+  opening_date: data_inicio_atividade
+  legal_nature_code: codigo_natureza_juridica
+  legal_nature: natureza_juridica
+  company_size: porte_empresa
+  share_capital: capital_social
+  main_cnae: cnae_principal
+  secondary_cnaes: cnaes_secundarios[]
+  address_street: tipo_logradouro + logradouro
+  address_number: numero
+  address_complement: complemento
+  address_district: bairro
+  address_city: municipio
+  address_state: uf
+  address_zip: cep
+  phones: telefones[].ddd + telefones[].numero   # is_fax = true excluded
+  email: email
+  partners: QSA[].nome_socio, QSA[].qualificacao_socio
+  simples_optant: opcao_simples
+  mei_optant: opcao_mei
+  source_updated_at: updated_at
+
+S07:
+  legal_name: data.razaoSocial
+  trade_name: data.nomeFantasia
+  establishment_type: data.matriz
+  registration_status: data.situacaoCadastral
+  registration_status_date: data.dataSituacaoCadastral   # dd/mm/yyyy
+  opening_date: data.dataInicioAtividades                # dd/mm/yyyy
+  legal_nature_code: data.naturezaJuridica               # "Text (2062)"
+  legal_nature: data.naturezaJuridica
+  share_capital: data.capitalSocial
+  main_cnae: data.cnaes[0].cnae
+  secondary_cnaes: data.cnaes[1:].cnae
+  address_street: data.logradouro
+  address_number: data.numero
+  address_complement: data.complemento
+  address_district: data.bairro
+  address_city: data.municipio
+  address_state: data.uf
+  address_zip: data.cep
+  phones: data.telefone
+  email: data.email
+  partners: data.socios[].nomeSocio, data.socios[].descricao
+  simples_optant: data.opcaoSimples
+  mei_optant: data.opcaoMei
